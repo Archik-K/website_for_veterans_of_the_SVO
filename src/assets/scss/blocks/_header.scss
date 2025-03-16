@@ -5,6 +5,9 @@
   height: 5rem;
   background: #FBE9B9;
   justify-content: center;
+  -webkit-box-shadow: 0px 7px 7px -3px rgba(80, 46, 34, 0.36);
+  -moz-box-shadow: 0px 7px 7px -3px rgba(80, 46, 34, 0.36);
+  box-shadow: 0px 7px 7px -3px rgba(80, 46, 34, 0.36);
 
   &__logo {
     font-size: 24px;

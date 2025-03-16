@@ -2,6 +2,7 @@ import styles from "../assets/styles/main.module.css"
 import LogoSVO from "../assets/logo/Logo_SVO_color.svg"
 import VK from "../assets/icon/vk.svg"
 import TG from "../assets/icon/tg.svg"
+
 const Header = () => {
   return (
     <header className={styles.header}>
