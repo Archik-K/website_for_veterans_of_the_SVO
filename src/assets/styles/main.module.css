@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Merriweather_Bold";
+  src: url("../fonts/Merriweather_Bold.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Merriweather_Regular";
+  src: url("../fonts/Merriweather_Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 .button {
   display: inline-block;
   padding: 12px 20px;
@@ -7,11 +19,11 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 20px;
   height: 5rem;
   background: #FBE9B9;
+  justify-content: center;
 }
 .header__logo {
   font-size: 24px;
@@ -20,13 +32,16 @@
 .header__nav {
   display: flex;
   gap: 15px;
+  width: 48rem;
+  justify-content: space-evenly;
 }
 .header__link {
   text-decoration: none;
-  color: black;
-  font-weight: 500;
-  transition: color 0.3s;
+  color: #2d1300;
+  font-weight: 700;
+  font-family: "Merriweather_Regular";
+  font-size: 1.5rem;
 }
 .header__link:hover {
-  color: blue;
+  color: #210E00;
 }/*# sourceMappingURL=main.module.css.map */
