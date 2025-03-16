@@ -1,0 +1,32 @@
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 5rem;
+  background: #FBE9B9;
+}
+.header__logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+.header__nav {
+  display: flex;
+  gap: 15px;
+}
+.header__link {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.header__link:hover {
+  color: blue;
+}/*# sourceMappingURL=main.module.css.map */
