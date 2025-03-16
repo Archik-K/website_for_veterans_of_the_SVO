@@ -5,8 +5,8 @@ const Description = () => {
   return (
       <div className={styles.description}>
         <div className={styles.description__container}>
-          <h2 className={styles.description__title}>
-          АНО "Воронежский Центр поддержки ветеранов СВО" оказывает помощь ветеранам Специальной Военной Операции, содействуя их социальной и трудовой адаптации.</h2>
+          <h1 className={styles.description__title}>
+          АНО "Воронежский Центр поддержки ветеранов СВО" оказывает помощь ветеранам Специальной Военной Операции, содействуя их социальной и трудовой адаптации.</h1>
         <img className={styles.description__img} src={soldiers} alt="Логотип сайта" /></div>
         <div className={styles.description__line}></div>
         </div>

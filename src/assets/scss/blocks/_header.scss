@@ -3,7 +3,7 @@
   align-items: center;
   padding: 20px;
   height: 5rem;
-  background: #FBE9B9;
+  background: $header-footer-color;
   justify-content: center;
   -webkit-box-shadow: 0px 7px 7px -3px rgba(80, 46, 34, 0.36);
   -moz-box-shadow: 0px 7px 7px -3px rgba(80, 46, 34, 0.36);
@@ -23,7 +23,7 @@
 
   &__link {
     text-decoration: none;
-    color: #2d1300;
+    color: $the-main-color-of-the-text;
     font-weight: 700;
     font-family: "Merriweather_Regular";
     font-size: 1.5rem;
