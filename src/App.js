@@ -3,8 +3,9 @@ import Header from './components/Header';
 import Description from './components/Description';
 import Button from './components/Button';
 import Directions from './components/Directions';
-import Contacts from './components/Contacts';
+import Team from './components/Team';
 import Footer from './components/Footer';
+import Biography from './components/Biography'
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
      <Header/>
      <Description/>
      <Directions/>
-     <Contacts/>
+     <Team/>
+     <Biography/>
      <Button/>
      <Footer/>
     </div>

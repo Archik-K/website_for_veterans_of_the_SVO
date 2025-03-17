@@ -122,9 +122,9 @@
   color: #2d1300;
   font-weight: 700;
   font-family: "Merriweather_Regular";
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-align: center;
-  padding: 1rem 3rem;
+  padding: 2rem 4rem;
 }
 .directions__list {
   display: flex;
@@ -160,14 +160,14 @@
   background-color: #BAA264;
 }
 
-.contacts {
+.team {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   margin: 5rem 0 1rem;
 }
-.contacts__title {
+.team__title {
   color: #2d1300;
   font-weight: 700;
   font-family: "Merriweather_Regular";
@@ -175,8 +175,7 @@
   text-align: center;
   padding: 1rem 3rem;
 }
-
-.image {
+.team__image {
   width: 184px;
   height: 184px;
   border-radius: 50%;
@@ -184,28 +183,23 @@
      object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
-
-.image:hover {
+.team image:hover {
   transform: scale(1.3);
 }
-
-.captionfio,
-.jobtitle {
+.team__captionfio, .team__jobtitle {
   text-align: center;
   font-size: 0.9rem;
   color: #333;
   max-width: 228px;
 }
-
-.captionfio {
+.team__captionfio {
   margin-top: 20px;
   color: #2d1300;
   font-weight: 600;
   font-family: "Merriweather_Regular";
   text-align: center;
 }
-
-.jobtitle {
+.team__jobtitle {
   margin-top: 0;
 }
 
@@ -278,4 +272,57 @@
   padding: 20px;
   width: 9%;
   justify-content: space-between;
+}
+
+.biography {
+  display: flex;
+  width: 100%;
+  margin: 5rem 0 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+.biography__container {
+  background-color: #F8F5E8;
+  border-radius: 15px;
+  display: flex;
+  width: 65rem;
+  height: 28rem;
+  margin: 1%;
+  align-items: center;
+}
+.biography__title {
+  color: #2d1300;
+  font-weight: 700;
+  font-family: "Merriweather_Regular";
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 2rem 4rem;
+}
+.biography__image {
+  width: 238px;
+  height: 290px;
+  border-radius: 15%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 4%;
+}
+.biography image:hover {
+  transform: scale(1.3);
+}
+.biography__container_description {
+  color: #2d1300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.biography__title_fio {
+  color: #2d1300;
+  font-weight: 700;
+  font-family: "Merriweather_Regular";
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 0;
+}
+.biography p {
+  padding: 1% 8%;
 }/*# sourceMappingURL=main.module.css.map */

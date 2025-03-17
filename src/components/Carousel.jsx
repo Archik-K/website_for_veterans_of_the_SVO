@@ -86,10 +86,10 @@ const Carousel = ({ slidesData, visibleSlides = 3, interval = 3000 }) => {
               <img
                 src={slide.photo}
                 alt={slide.caption}
-                className={styles.image}
+                className={styles.team__image}
               />
-              <p className={styles.captionfio}>{slide.captionfio}</p>
-              <p className={styles.jobtitle}>{slide.jobtitle}</p>
+              <p className={styles.team__captionfio}>{slide.captionfio}</p>
+              <p className={styles.team__jobtitle}>{slide.jobtitle}</p>
             </div>
           ))}
         </div>
