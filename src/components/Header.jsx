@@ -1,7 +1,6 @@
 import styles from "../assets/styles/main.module.css"
 import LogoSVO from "../assets/logo/Logo_SVO_color.svg"
-import VK from "../assets/icon/vk.svg"
-import TG from "../assets/icon/tg.svg"
+import Social from "./Social"
 
 const Header = () => {
   return (
@@ -12,9 +11,8 @@ const Header = () => {
         <a href="/" className={styles.header__link}>Проекты</a>
         <a href="/" className={styles.header__link}>Контакты</a>
         <a href="/" className={styles.header__link}>Обратная связь</a>
-        <a href="https://vk.com/association_svo_vrn" className={styles.header__link}><img src={VK} alt="Ссылка на вконтакте" /></a>
-        <a href="https://t.me/avsvo36" className={styles.header__link}><img src={TG} alt="Ссылка на телеграм" /></a>
       </nav>
+      <Social/>
     </header>
   );
 };
