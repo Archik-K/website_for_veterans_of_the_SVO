@@ -8,7 +8,7 @@
   &__title {
     color: $the-main-color-of-the-text;
     font-weight: 700;
-    font-family: "Merriweather_Regular";
+    @extend %font-face-regular;
     font-size: 1.5rem;
     text-align: center;
     padding: 1rem 3rem;
@@ -38,7 +38,7 @@
     margin-top: 20px;
     color: $the-main-color-of-the-text;
     font-weight: 600;
-    font-family: "Merriweather_Regular";
+    @extend %font-face-regular;
     text-align: center;
   }
 

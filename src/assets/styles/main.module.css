@@ -1,16 +1,9 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "Merriweather_Bold";
-  src: url("../fonts/Merriweather_Bold.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
+.title, .frequentquestions__title, .news__title, .projects__title, .grantswon__title, .biography__title_fio, .biography__title, .team__captionfio, .team__title, .directions__list li, .directions__title, .description__title, .header__link, .footer__rights {
   font-family: "Merriweather_Regular";
   src: url("../fonts/Merriweather_Regular.ttf") format("ttf");
-  font-weight: normal;
-  font-style: normal;
 }
+
 /*  тут пишем то что мы используем часто
  */
 .button {
@@ -27,6 +20,7 @@
   height: 8rem;
   background: #FBE9B9;
   justify-content: space-around;
+  margin: 4% 0 0 0;
 }
 .footer__logo {
   font-size: 24px;
@@ -36,7 +30,6 @@
   display: flex;
   color: #2d1300;
   font-weight: 700;
-  font-family: "Merriweather_Regular";
   font-size: 0.8rem;
   height: 6rem;
   flex-direction: column;
@@ -70,14 +63,12 @@
   text-decoration: none;
   color: #2d1300;
   font-weight: 700;
-  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
 }
 .header__link:hover {
   color: #210E00;
 }
 
-/* @import "~/assets/scss/base/mixins"; */
 .description {
   display: flex;
   width: 100%;
@@ -96,7 +87,6 @@
 .description__title {
   color: #2d1300;
   font-weight: 700;
-  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 1rem 3rem;
@@ -121,7 +111,6 @@
 .directions__title {
   color: #2d1300;
   font-weight: 700;
-  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 2rem 4rem;
@@ -140,7 +129,6 @@
   display: flex;
   color: #2d1300;
   font-weight: 600;
-  font-family: "Merriweather_Regular";
   text-align: center;
   flex-grow: 1;
   flex-shrink: 1;
@@ -170,7 +158,6 @@
 .team__title {
   color: #2d1300;
   font-weight: 700;
-  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 1rem 3rem;
@@ -196,7 +183,6 @@
   margin-top: 20px;
   color: #2d1300;
   font-weight: 600;
-  font-family: "Merriweather_Regular";
   text-align: center;
 }
 .team__jobtitle {
@@ -293,7 +279,6 @@
 .biography__title {
   color: #2d1300;
   font-weight: 700;
-  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 2rem 4rem;
@@ -318,11 +303,196 @@
 .biography__title_fio {
   color: #2d1300;
   font-weight: 700;
-  font-family: "Merriweather_Regular";
   font-size: 1.3rem;
   text-align: center;
   margin: 0;
 }
 .biography p {
   padding: 1% 8%;
+}
+
+.grantswon {
+  display: flex;
+  width: 100%;
+  margin: 5rem 0 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+.grantswon__container {
+  background-color: #F8F5E8;
+  border-radius: 15px;
+  display: flex;
+  width: 45rem;
+  flex-direction: column;
+  align-items: center;
+}
+.grantswon__title {
+  color: #2d1300;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem 3rem;
+}
+.grantswon__img {
+  width: 90%;
+}
+.grantswon__line {
+  width: 83%;
+  margin: 5rem 0 0;
+  height: 2px;
+  background-color: #BAA264;
+}
+
+.projects {
+  display: flex;
+  width: 100%;
+  margin: 5rem 0 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+.projects__container {
+  background-color: #F8F5E8;
+  border-radius: 15px;
+  display: flex;
+  width: 45rem;
+  flex-direction: column;
+  align-items: center;
+}
+.projects__title {
+  color: #2d1300;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem 3rem;
+}
+.projects__line {
+  width: 83%;
+  margin: 5rem 0 0;
+  height: 2px;
+  background-color: #BAA264;
+}
+
+.news {
+  display: flex;
+  width: 100%;
+  margin: 5rem 0 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+.news__container {
+  background-color: #F8F5E8;
+  border-radius: 15px;
+  display: flex;
+  width: 45rem;
+  flex-direction: column;
+  align-items: center;
+}
+.news__title {
+  color: #2d1300;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem 3rem;
+}
+.news__line {
+  width: 83%;
+  margin: 5rem 0 0;
+  height: 2px;
+  background-color: #BAA264;
+}
+
+.cardsWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.cardWrapper {
+  position: relative;
+  width: 37%;
+  padding-bottom: 8%;
+  perspective: 520px;
+}
+
+.frequentquestions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  margin: 5rem 0 1rem;
+  justify-content: center;
+}
+
+.frequentquestions__title {
+  color: #2d1300;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem 3rem;
+}
+
+.cardObject {
+  position: absolute;
+  width: 100%;
+  height: 86%;
+  cursor: pointer;
+  transition: 0.5s;
+  transform-style: preserve-3d;
+  will-change: transform;
+  /* Помогает оптимизировать анимацию */
+}
+
+.cardObject:hover {
+  transform: rotateX(180deg);
+}
+
+.faceFront,
+.faceBack {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  /* Изменено с 40% на 100% */
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.faceFront {
+  background: #F8F5E8;
+  /* цвет лицевой стороны */
+  color: #2d1300;
+}
+
+.faceBack {
+  background: #F8F5E8;
+  color: #2d1300;
+  transform: rotateX(180deg);
+  text-align: center;
+}
+
+.titleWrapper {
+  text-align: center;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.infoWrapper {
+  text-align: center;
+}
+
+.infoTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }/*# sourceMappingURL=main.module.css.map */

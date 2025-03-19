@@ -5,6 +5,7 @@
   height: 8rem;
   background: $header-footer-color;
   justify-content: space-around;
+  margin: 4% 0 0 0;
 
   &__logo {
     font-size: 24px;
@@ -15,7 +16,7 @@
     display: flex;
     color: #2d1300;
     font-weight: 700;
-    font-family: "Merriweather_Regular";
+    @extend %font-face-regular;
     font-size: 0.8rem;
     height: 6rem;
     flex-direction: column;

@@ -25,7 +25,7 @@
     text-decoration: none;
     color: $the-main-color-of-the-text;
     font-weight: 700;
-    font-family: "Merriweather_Regular";
+    @extend %font-face-regular;
     font-size: 1.5rem;
 
     &:hover {
