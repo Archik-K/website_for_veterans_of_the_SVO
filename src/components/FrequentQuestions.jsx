@@ -35,14 +35,14 @@ const FrequentQuestions = () => {
         {questions.map((q) => (
           <div key={q.id} className={styles.cardWrapper}>
             <div className={styles.cardObject}>
-              {/* Лицевая сторона: вопрос */}
-              <div className={styles.faceFront}>
+              {/* Лицевая сторона */}
+              <div className={`${styles.face} ${styles.faceFront}`}>
                 <div className={styles.titleWrapper}>
                   <div className={styles.title}>{q.question}</div>
                 </div>
               </div>
-              {/* Обратная сторона: ответ */}
-              <div className={styles.faceBack}>
+              {/* Обратная сторона */}
+              <div className={`${styles.face} ${styles.faceBack}`}>
                 <div className={styles.infoWrapper}>
                   <div className={styles.infoTitle}>Ответ</div>
                   <p>{q.answer}</p>

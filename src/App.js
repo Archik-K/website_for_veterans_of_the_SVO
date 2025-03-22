@@ -9,7 +9,7 @@ import Biography from './components/Biography';
 import Grantswon from './components/Grantswon';
 import Projects from './components/Projects';
 import News from './components/News';
-import FrequentQuestions from './components/FrequentQuestions';
+/* import FrequentQuestions from './components/FrequentQuestions'; */
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
      <Directions/>
      <Projects/>
      <News/>
-     <FrequentQuestions/>
+{/*      <FrequentQuestions/> */}
      <Team/>
      <Grantswon/>
      <Biography/>

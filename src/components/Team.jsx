@@ -14,43 +14,51 @@ const Team = () => {
   const slidesData = [
     {
       photo: photo1,
-      captionfio:
-        "Карзанов Владимир Петрович",
-        jobtitle:  "Руководитель проекта, председатель Ассоциации ветеранов СВО по Воронежской области",
+      captionfio: "Карзанов Владимир Петрович",
+      jobtitle: "Руководитель проекта, председатель Ассоциации ветеранов СВО по Воронежской области",
     },
     {
       photo: photo2,
       captionfio: "Хайрулин Андрей Серажданович",
-      jobtitle:  "Сопредседатель",
+      jobtitle: "Сопредседатель",
     },
     {
       photo: photo3,
-      captionfio:
-        "Костюков Роман Сергеевич",
-        jobtitle:  "Зам председателя по поисковой работе пропавших без вести и погибших, гуманитарной помощи",
+      captionfio: "Костюков Роман Сергеевич",
+      jobtitle: "Зам председателя по поисковой работе пропавших без вести и погибших, гуманитарной помощи",
     },
     {
       photo: photo4,
-      captionfio:
-        "Пуссила Леонид Викторович",
-        jobtitle:  "Зам председателя по работе с ветеранами СВО",
+      captionfio: "Пуссила Леонид Викторович",
+      jobtitle: "Зам председателя по работе с ветеранами СВО",
     },
     {
       photo: photo5,
       captionfio: "Глаголева Елена Александровна",
-      jobtitle:  "Координатор по реализации проектов",
+      jobtitle: "Координатор по реализации проектов",
     },
     {
       photo: photo6,
       captionfio: "Глаголева Вероника Сергеевна",
-      jobtitle:  "Пресс секретарь",
+      jobtitle: "Пресс-секретарь",
     },
   ];
 
+  // Функция для рендеринга слайдов с данными команды
+  
+  const renderSlideContent = (slide) => (
+    <div className={styles.team__slide}>
+      <div className={`${styles.team__contanier} ${styles.team__member}`}>
+        <img src={slide.photo} alt={slide.captionfio} className={styles.team__image} />
+        <p className={styles.team__captionfio}>{slide.captionfio}</p>
+        <p className={styles.team__jobtitle}>{slide.jobtitle}</p>
+      </div>
+    </div>
+  );
   return (
     <div className={styles.team}>
       <h2 className={styles.team__title}>НАША КОМАНДА</h2>
-      <Carousel slidesData={slidesData} visibleSlides={3} interval={3000} />
+      <Carousel slidesData={slidesData} visibleSlides={3} interval={3000} renderSlideContent={renderSlideContent} />
       <div className={styles.directions__line}></div>
     </div>
   );

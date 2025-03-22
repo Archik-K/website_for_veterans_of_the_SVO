@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../assets/styles/main.module.css";
 
-const Carousel = ({ slidesData, visibleSlides = 3, interval = 3000 }) => {
+const Carousel = ({ slidesData, visibleSlides = 3, interval = 3000, renderSlideContent }) => {
   // Количество клонированных слайдов с начала и конца
   const cloneCount = visibleSlides;
   // Массив с клонами: [конечные клоны, оригинальные слайды, начальные клоны]
@@ -83,13 +83,7 @@ const Carousel = ({ slidesData, visibleSlides = 3, interval = 3000 }) => {
         >
           {slides.map((slide, index) => (
             <div key={index} className={styles.slide}>
-              <img
-                src={slide.photo}
-                alt={slide.caption}
-                className={styles.team__image}
-              />
-              <p className={styles.team__captionfio}>{slide.captionfio}</p>
-              <p className={styles.team__jobtitle}>{slide.jobtitle}</p>
+              {renderSlideContent(slide)} {/* Рендерим переданный контент */}
             </div>
           ))}
         </div>

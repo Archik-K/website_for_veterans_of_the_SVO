@@ -7,11 +7,13 @@
 
   &__container {
     background-color: $the-color-of-the-blocks;
+    color: $the-main-color-of-the-text;
     border-radius: 15px;
     display: flex;
-    width: 45rem;
+    width: 50rem;
     flex-direction: column;
     align-items: center;
+    margin: 2%;
   }
 
   &__title {
@@ -24,7 +26,21 @@
   }
 
   &__img {
-    width: 90%;
+    width: 42%;
+  }
+
+  &__name {
+    color: $the-main-color-of-the-text;
+    @extend %font-face-regular;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 33px 0 0;
+  }
+
+  &__text {
+    padding: 0 6%;
+    font-size: 0.9rem;
   }
 
   &__line {
