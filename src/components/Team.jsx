@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../assets/styles/main.module.css";
 import Carousel from "./Carousel";
 
-// Импорт изображений (или URL)
+// Импорт изображений
 import photo1 from "../assets/icon/Karzanov.jpg";
 import photo2 from "../assets/icon/Hairulin.jpg";
 import photo3 from "../assets/icon/Kostyukov.jpg";
@@ -44,8 +44,25 @@ const Team = () => {
     },
   ];
 
-  // Функция для рендеринга слайдов с данными команды
-  
+  // Состояние для количества видимых слайдов
+  const [visibleSlides, setVisibleSlides] = useState(3);
+
+  // При ширине экрана меньше 320px показываем 2 слайда
+  useEffect(() => {
+    const updateVisibleSlides = () => {
+      if (window.innerWidth < 320) {
+        setVisibleSlides(2);
+      } else {
+        setVisibleSlides(3);
+      }
+    };
+
+    updateVisibleSlides();
+    window.addEventListener("resize", updateVisibleSlides);
+    return () => window.removeEventListener("resize", updateVisibleSlides);
+  }, []);
+
+  // Функция рендеринга содержимого слайда
   const renderSlideContent = (slide) => (
     <div className={styles.team__slide}>
       <div className={`${styles.team__contanier} ${styles.team__member}`}>
@@ -55,10 +72,16 @@ const Team = () => {
       </div>
     </div>
   );
+
   return (
-    <div className={styles.team}>
+    <div className={styles.team} id="team-section">
       <h2 className={styles.team__title}>НАША КОМАНДА</h2>
-      <Carousel slidesData={slidesData} visibleSlides={3} interval={3000} renderSlideContent={renderSlideContent} />
+      <Carousel 
+        slidesData={slidesData} 
+        defaultVisibleSlides={visibleSlides} 
+        interval={3000} 
+        renderSlideContent={renderSlideContent} 
+      />
       <div className={styles.directions__line}></div>
     </div>
   );

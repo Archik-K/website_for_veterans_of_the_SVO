@@ -47,3 +47,105 @@
     @include line;
   }
 }
+
+@media (max-width: 1024px) {
+  .grantswon {
+    margin: 2rem 0 1rem;
+
+    &__container {
+      width: 43rem;
+    }
+
+    &__text {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 768px */
+@media (max-width: 768px) {
+  .grantswon {
+    margin: 2rem 0 1rem;
+
+    &__container {
+      width: 33rem;
+    }
+
+    &__text {
+      font-size: 0.7rem;
+    }
+
+    &__name {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 425px */
+@media (max-width: 425px) {
+  .grantswon {
+    margin: 2rem 0 1rem;
+
+    &__title {
+      font-size: 1.1rem;
+      padding: 1rem 2rem;
+    }
+
+    &__container {
+      width: 22rem;
+    }
+
+    &__text {
+      font-size: 0.7rem;
+    }
+
+    &__name {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 375px */
+@media (max-width: 375px) {
+  .grantswon {
+    &__img {
+      width: 78%;
+    }
+
+    &__container {
+      width: 20rem;
+    }
+
+    &__name {
+      font-size: 0.9rem;
+      padding: 0 34px;
+    }
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 320px */
+@media (max-width: 320px) {
+  .grantswon {
+    &__img {
+      width: 78%;
+    }
+
+    &__container {
+      width: 16rem;
+    }
+
+    &__text {
+      font-size: 0.6rem;
+    }
+
+    &__name {
+      font-size: 0.8rem;
+      padding: 0px 10px;
+    }
+
+    &__title {
+      font-size: 0.9rem;
+    }
+  }
+}

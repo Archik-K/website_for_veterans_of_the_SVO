@@ -1,38 +1,47 @@
-import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase/firebaseConfig"; // Импорт аутентификации
+import React, { useState } from 'react';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const auth = getAuth();
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Вы успешно вошли");
+      localStorage.setItem('token', 'your_token');  // Сохраняем токен в localStorage
+      navigate('/admin');
     } catch (error) {
-      console.error("Ошибка входа", error);
-      alert("Неверные данные для входа");
+      alert('Ошибка авторизации');
+      console.error(error);
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Пароль"
-      />
-      <button type="submit">Войти</button>
-    </form>
+    <div>
+      <h2>Вход в систему</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Пароль"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Войти</button>
+      </form>
+    </div>
   );
 };
 

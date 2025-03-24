@@ -31,3 +31,65 @@
     @include line;
   }
 }
+
+/* Адаптивные стили для устройств меньше 768px */
+@media (max-width: 768px) {
+  .description {
+    margin: 4rem 0 1rem;
+
+    &__container {
+      width: 40rem;
+    }
+
+    &__title {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 425px */
+@media (max-width: 425px) {
+  .description {
+    margin: 4rem 0 1rem;
+
+    &__container {
+      width: 23rem;
+    }
+
+    &__title {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 375px */
+@media (max-width: 375px) {
+  .description {
+    margin: 4rem 0 1rem;
+
+    &__container {
+      width: 22rem;
+    }
+
+    &__title {
+      font-size: 0.73rem;
+      padding: 1rem 1rem
+    }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 320px */
+@media (max-width: 320px) {
+  .description {
+    margin: 2rem 0 1rem;
+
+    &__container {
+      width: 18rem;
+    }
+
+    &__title {
+      font-size: 0.6rem;
+      padding: 2rem 0.1rem;
+    }
+  }
+}

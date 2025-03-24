@@ -3,7 +3,7 @@ import styles from "../assets/styles/main.module.css"
 const Directions = () => {
   return (
       <div className={styles.directions}>
-      <h2 className={styles.directions__title}>
+      <h2 className={styles.directions__title} id="directions-section">
           ОСНОВНЫЕ НАПРАВЛЕНИЯ РАБОТЫ</h2>
           <ul className={styles.directions__list}>
   <li >Поддержка, защита прав и интересов ветеранов специальной военной операции.

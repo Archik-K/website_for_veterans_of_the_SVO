@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "../assets/styles/main.module.css";
 import Carousel from "./Carousel"; // Импортируем карусель
+
+// Импорт изображений проектов
 import veteransVolleyball from "../assets/icon/SVO-veterans-volleyball-team-1.webp";
 import soldiersAndSpecialist from "../assets/icon/soldiers-and-specialist.png";
 
@@ -12,17 +14,17 @@ const projectsData = [
     subsections: [
       {
         title: "Цель",
-        text: "Повысить знания и мотивацию к выходу на рынок труда не менее 50 ветеранов СВО через профориентацию, тренинги и консультации."
+        text: "Повысить знания и мотивацию к выходу на рынок труда ветеранов СВО через профориентацию, тренинги и консультации."
       },
       {
         title: "Задачи",
         text: [
           "Организовать информационную поддержку проекта.",
           "Провести профориентационные мероприятия, тренинги по резюме и собеседованиям.",
-          "Провести 50 психологических диагностик и 50 часов консультаций с психологом.",
-          "Организовать 3 цикла тренингов с интервалом 3–4 месяца.",
+          "Провести психологические диагностики с психологом.",
+          "Организовать тренинги.",
           "Осуществить индивидуальное карьерное консультирование.",
-          "Провести 10 выездных встреч в районных центрах.",
+          "Провести выездные встречи в районных центрах.",
           "Наладить взаимодействие с работодателями через тренинги и консультации.",
           "Создать рабочую группу ветеранов для консультаций и профориентационных экскурсий."
         ]
@@ -61,10 +63,10 @@ const projectsData = [
 ];
 
 const renderSlideContent = (project) => (
-  <div className={styles.projectSlide}>
-    <img src={project.image} alt={project.name} className={styles.projectImage} />
-    <div className={styles.projectContent}>
-      <h3 className={styles.projectName}>{project.name}</h3>
+  <div className={styles.projects__slide}>
+    <img src={project.image} alt={project.name} className={styles.projects__image} />
+    <div className={styles.projects__content}>
+      <h3 className={styles.projects__name}>{project.name}</h3>
       {project.subsections.map((section, index) => (
         <div key={index} className={styles.projectSection}>
           <h4>{section.title}</h4>
@@ -85,9 +87,15 @@ const renderSlideContent = (project) => (
 
 const Projects = () => {
   return (
-    <div className={styles.projects}>
+    <div className={styles.projects} id="projects-section">
       <h1 className={styles.projects__title}>НАШИ ПРОЕКТЫ</h1>
-      <Carousel slidesData={projectsData} visibleSlides={1} interval={4000} renderSlideContent={renderSlideContent} />
+      <Carousel 
+        slidesData={projectsData} 
+        visibleSlides={1} 
+        interval={4000} 
+        renderSlideContent={renderSlideContent}
+        persistKey="projectsCarouselIndex"  // Ключ для сохранения индекса в localStorage
+      />
       <div className={styles.directions__line}></div>
     </div>
   );

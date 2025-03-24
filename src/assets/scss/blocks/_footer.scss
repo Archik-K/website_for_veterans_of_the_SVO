@@ -28,3 +28,46 @@
     }
   }
 }
+
+/* Адаптивные стили для устройств меньше 768px */
+@media (max-width: 768px) {
+  .footer {
+    &__rights {
+      font-size: 0.6rem;
+      width: 55%;
+    }
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 425px */
+@media (max-width: 425px) {
+  .footer {
+    &__rights {
+      font-size: 0.5rem;
+      width: 310px;
+    }
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 375px */
+@media (max-width: 375px) {
+  .footer {
+    &__rights {
+      font-size: 0.48rem;
+      width: 450px;
+    }
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 320px */
+@media (max-width: 320px) {
+  .footer {
+    &__rights {
+      font-size: 0.48rem;
+      width: 140px;
+    }
+  }
+}

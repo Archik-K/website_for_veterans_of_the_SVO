@@ -1,30 +1,66 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../assets/styles/main.module.css";
 
-const Carousel = ({ slidesData, visibleSlides = 3, interval = 3000, renderSlideContent }) => {
-  // Количество клонированных слайдов с начала и конца
-  const cloneCount = visibleSlides;
-  // Массив с клонами: [конечные клоны, оригинальные слайды, начальные клоны]
-  const slides = [
-    ...slidesData.slice(-cloneCount),
-    ...slidesData,
-    ...slidesData.slice(0, cloneCount),
-  ];
+const Carousel = ({
+  slidesData,
+  visibleSlides = 3,    // Количество видимых слайдов (по умолчанию 3)
+  interval = 3000,
+  renderSlideContent,
+  persistKey            // Ключ для сохранения текущего индекса в localStorage
+}) => {
+  // Состояние для количества видимых слайдов (принимается из пропсов)
+  const [currentVisibleSlides, setCurrentVisibleSlides] = useState(visibleSlides);
+  
+  useEffect(() => {
+    setCurrentVisibleSlides(visibleSlides);
+  }, [visibleSlides]);
+
+  // Вычисляем количество клонов для зацикленного скролла
+  const cloneCount = Math.min(currentVisibleSlides, slidesData.length);
+  
+  // Формируем массив с клонами: [последние клоны, оригинальные слайды, первые клоны]
+  const slides = slidesData.length > cloneCount
+    ? [
+        ...slidesData.slice(-cloneCount),
+        ...slidesData,
+        ...slidesData.slice(0, cloneCount)
+      ]
+    : slidesData;
+
   const totalSlides = slides.length;
-  // Начинаем с оригинальных слайдов (после начальных клонов)
-  const [currentIndex, setCurrentIndex] = useState(cloneCount);
-  // Флаг для анимации
+  // Начальный индекс равен cloneCount (если используются клоны), чтобы отобразить оригинальные слайды
+  const initialIndex = slidesData.length > cloneCount ? cloneCount : 0;
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  
+  // Если задан persistKey, пытаемся загрузить сохранённое значение currentIndex из localStorage
+  useEffect(() => {
+    if (persistKey) {
+      const savedIndex = localStorage.getItem(persistKey);
+      if (savedIndex !== null) {
+        setCurrentIndex(Number(savedIndex));
+      }
+    }
+  }, [persistKey]);
+
+  // Сохраняем currentIndex в localStorage, если persistKey задан
+  useEffect(() => {
+    if (persistKey) {
+      localStorage.setItem(persistKey, currentIndex);
+    }
+  }, [currentIndex, persistKey]);
+
+  // Флаг анимации
   const [transitionEnabled, setTransitionEnabled] = useState(true);
   // Флаг для остановки автопрокрутки при наведении
   const [isHovered, setIsHovered] = useState(false);
   const trackRef = useRef(null);
 
-  // Функция для смены слайда
+  // Функция для переключения на определённый слайд
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
 
-  // Автопрокрутка слайдов (остановка при наведении)
+  // Автопрокрутка слайдов (если мышь не находится над каруселью)
   useEffect(() => {
     if (isHovered) return;
     const timer = setInterval(() => {
@@ -33,8 +69,9 @@ const Carousel = ({ slidesData, visibleSlides = 3, interval = 3000, renderSlideC
     return () => clearInterval(timer);
   }, [currentIndex, interval, isHovered]);
 
-  // Обработчик перехода для корректного перепрыгивания слайдов
+  // Обработка перехода для зацикленной карусели (бесшовный скролл)
   useEffect(() => {
+    if (slidesData.length <= cloneCount) return;
     const handleTransitionEnd = () => {
       if (currentIndex === totalSlides - cloneCount) {
         setTransitionEnabled(false);
@@ -43,23 +80,16 @@ const Carousel = ({ slidesData, visibleSlides = 3, interval = 3000, renderSlideC
         setTransitionEnabled(false);
         goToSlide(totalSlides - cloneCount * 2);
       }
-      // Снова включаем анимацию
       setTimeout(() => setTransitionEnabled(true), 50);
     };
 
     const track = trackRef.current;
     track.addEventListener("transitionend", handleTransitionEnd);
     return () => track.removeEventListener("transitionend", handleTransitionEnd);
-  }, [currentIndex, totalSlides, cloneCount]);
+  }, [currentIndex, totalSlides, cloneCount, slidesData.length]);
 
-  // Функции для кнопок управления
-  const nextSlide = () => {
-    goToSlide(currentIndex + 1);
-  };
-
-  const prevSlide = () => {
-    goToSlide(currentIndex - 1);
-  };
+  const nextSlide = () => goToSlide(currentIndex + 1);
+  const prevSlide = () => goToSlide(currentIndex - 1);
 
   return (
     <div className={styles.carouselContainer}>
@@ -75,15 +105,13 @@ const Carousel = ({ slidesData, visibleSlides = 3, interval = 3000, renderSlideC
           ref={trackRef}
           className={styles.slideTrack}
           style={{
-            transform: `translateX(-${(currentIndex * 100) / visibleSlides}%)`,
-            transition: transitionEnabled
-              ? "transform 0.8s ease-in-out"
-              : "none",
+            transform: `translateX(-${(currentIndex * 100) / currentVisibleSlides}%)`,
+            transition: transitionEnabled ? "transform 0.8s ease-in-out" : "none"
           }}
         >
           {slides.map((slide, index) => (
             <div key={index} className={styles.slide}>
-              {renderSlideContent(slide)} {/* Рендерим переданный контент */}
+              {renderSlideContent(slide)}
             </div>
           ))}
         </div>

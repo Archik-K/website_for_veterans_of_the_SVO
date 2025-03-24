@@ -3,7 +3,7 @@ import Karzanov from "../assets/icon/Karzanov.jpg"
 
 const Biography = () => {
   return (
-      <div className={styles.biography}>
+      <div className={styles.biography}  id="biography-section">
           <h2 className={styles.biography__title}>
           БИОГРАФИЯ РУКОВОДИТЕЛЯ</h2>
         <div className={styles.biography__container}>

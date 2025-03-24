@@ -17,7 +17,8 @@
   &__nav {
     display: flex;
     gap: 15px;
-    width: 48rem;
+    width: 80rem;
+    align-items: center;
     justify-content: space-evenly;
   }
 
@@ -26,10 +27,95 @@
     color: $the-main-color-of-the-text;
     font-weight: 700;
     @extend %font-face-regular;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 
     &:hover {
-      color: #210E00;
+      color: #74231d;
     }
+  }
+}
+
+// Стили для бургер-иконки
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger_line {
+  width: 100%;
+  height: 3px;
+  background-color: $the-main-color-of-the-text;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    &__link {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 768px */
+@media (max-width: 768px) {
+  .header {
+    justify-content: space-between;
+
+    &__nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 7rem; // ниже шапки
+      right: 0;
+      background-color: $header-footer-color;
+      width: 100%;
+      height: 40%;
+      text-align: center;
+      padding: 1rem 0;
+    }
+  }
+
+  .nav_open {
+    display: flex;
+    align-items: center;
+  }
+
+  .burger {
+    display: flex;
+    height: 26px;
+    width: 38px;
+  }
+
+  /* Стили для крестика */
+  .cross {
+    position: relative;
+    width: 20px;
+    /* Можно подогнать под размеры кнопки */
+    height: 20px;
+    /* Можно подогнать под размеры кнопки */
+  }
+
+  .crossLine {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 27px;
+    height: 1px;
+    /* Высота линии */
+    background-color: $the-main-color-of-the-text;
+    transform-origin: center;
+  }
+
+  .crossLine:first-child {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .crossLine:last-child {
+    transform: translateY(-50%) rotate(-45deg);
   }
 }

@@ -5,3 +5,37 @@
   width: 9%;
   justify-content: space-between;
 }
+
+@media (max-width: 1024px) {
+  img {
+    width: 93%;
+  }
+}
+
+/* Адаптивные стили для устройств меньше 768px */
+@media (max-width: 768px) {
+  .social {
+    width: 20%;
+    justify-content: space-evenly;
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 425px */
+@media (max-width: 425px) {
+  .social {
+    width: 15%;
+    justify-content: space-evenly;
+    padding: 7px;
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 375px */
+@media (max-width: 375px) {
+  .social {
+    width: 20%;
+    justify-content: space-evenly;
+    padding: 1px;
+  }
+}

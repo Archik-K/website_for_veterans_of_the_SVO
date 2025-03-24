@@ -27,16 +27,13 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-
 }
-
 
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: #f8f5e8;
-  ;
   border: none;
   border-radius: 50%;
   width: 50px;
@@ -61,4 +58,77 @@
 
 .arrow.next {
   right: 10px;
+}
+
+@media (max-width: 1024px) {
+  .carouselContainer {
+    width: 75%;
+  }
+}
+
+/* Адаптивные стили для устройств меньше 768px */
+@media (max-width: 768px) {
+  .carouselContainer {
+    width: 88%;
+  }
+}
+
+/* Адаптивные стили для устройств меньше 425px */
+@media (max-width: 425px) {
+  .carouselContainer {
+    width: 98%;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .carousel {
+    width: 82%;
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 375px */
+@media (max-width: 375px) {
+  .arrow {
+    width: 31px;
+    height: 31px;
+    font-size: 1rem;
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 320px */
+@media (max-width: 320px) {
+  .carouselContainer {
+    width: 315px;
+  }
+
+  .arrow {
+    width: 25px;
+    height: 25px;
+    font-size: 1rem;
+  }
+
+  .slide {
+    flex: 0 0 calc(100% / 2);
+    /* 2 слайда на экранах <320px */
+  }
+
+  .carousel {
+    width: 60%;
+    min-width: 251px;
+  }
+
+  .prev {
+    left: 5px;
+  }
+
+  .next {
+    right: 5px;
+  }
+
 }

@@ -47,3 +47,96 @@
     @include line;
   }
 }
+
+
+@media (max-width: 1024px) {
+  .directions {
+    margin: 2rem 0 1rem;
+
+    &__list {
+      gap: 27px;
+      width: 100%;
+      justify-content: center;
+
+      li {
+        font-size: 1rem;
+      }
+    }
+
+    &__line {
+      @include line-adaptiv;
+    }
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .directions {
+    margin: 2rem 0 1rem;
+
+    &__title {
+      font-size: 1.1rem;
+      padding: 0rem 4rem;
+    }
+
+    &__list {
+      gap: 16px;
+      width: 100%;
+      justify-content: center;
+
+      li {
+        font-size: 0.8rem;
+        max-width: calc(46% - 10px);
+      }
+    }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 425px */
+@media (max-width: 425px) {
+  .directions {
+    margin: 2rem 0 1rem;
+
+    &__title {
+      font-size: 1.1rem;
+      padding: 0rem 1rem;
+    }
+
+    &__list {
+      gap: 16px;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        font-size: 0.8rem;
+        max-width: calc(93% - 10px);
+      }
+    }
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 320px */
+@media (max-width: 320px) {
+  .directions {
+    margin: 2rem 0 1rem;
+
+    &__title {
+      font-size: 0.9rem;
+      padding: 0rem 1rem;
+    }
+
+    &__list {
+      gap: 16px;
+      width: 100%;
+      margin: 1rem;
+
+      li {
+        font-size: 0.7rem;
+        max-width: calc(85% - 10px);
+      }
+    }
+  }
+}
