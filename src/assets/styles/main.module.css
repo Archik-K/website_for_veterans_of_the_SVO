@@ -1,9 +1,28 @@
 @charset "UTF-8";
-.news__title, .projects__title_name, .projects__title, .grantswon__name, .grantswon__title, .biography__title_fio, .biography__title, .team__captionfio, .team__title, .directions__list li, .directions__title, .description__title, .header__link, .footer__rights {
-  font-family: "Merriweather_Regular";
-  src: url("../fonts/Merriweather_Regular.ttf") format("ttf");
+@font-face {
+  font-family: "Merriweather_Bold";
+  src: url("../fonts/Merriweather_Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
 }
-
+@font-face {
+  font-family: "Merriweather_Regular";
+  src: url("../fonts/Merriweather_Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NotoSans_Regular";
+  src: url("../fonts/NotoSans_Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NotoSans_Bold";
+  src: url("../fonts/NotoSans_Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
 /*  тут пишем то что мы используем часто
  */
 .footer {
@@ -23,6 +42,7 @@
   display: flex;
   color: #2d1300;
   font-weight: 700;
+  font-family: "Merriweather_Regular";
   font-size: 0.8rem;
   height: 6rem;
   flex-direction: column;
@@ -43,7 +63,7 @@
 /* Адаптивные стили для устройств меньше 425px */
 @media (max-width: 425px) {
   .footer__rights {
-    font-size: 0.5rem;
+    font-size: 0.41rem;
     width: 310px;
   }
 }
@@ -85,7 +105,8 @@
   text-decoration: none;
   color: #2d1300;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-family: "Merriweather_Regular";
+  font-size: 1.1rem;
 }
 .header__link:hover {
   color: #74231d;
@@ -110,7 +131,7 @@
 
 @media (max-width: 1024px) {
   .header__link {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 /* Адаптивные стили для устройств меньше 768px */
@@ -126,7 +147,7 @@
     right: 0;
     background-color: #FBE9B9;
     width: 100%;
-    height: 40%;
+    height: 42%;
     text-align: center;
     padding: 1rem 0;
   }
@@ -175,13 +196,14 @@
   background-color: #F8F5E8;
   border-radius: 15px;
   display: flex;
-  width: 45rem;
+  width: 52rem;
   flex-direction: column;
   align-items: center;
 }
 .description__title {
   color: #2d1300;
   font-weight: 700;
+  font-family: "NotoSans_Bold";
   font-size: 1.5rem;
   text-align: center;
   padding: 1rem 3rem;
@@ -190,12 +212,17 @@
   width: 90%;
 }
 .description__line {
-  width: 83%;
+  width: 87%;
   margin: 5rem 0 0;
   height: 2px;
   background-color: #BAA264;
 }
 
+@media (max-width: 1024px) {
+  .description__title {
+    font-size: 1rem;
+  }
+}
 /* Адаптивные стили для устройств меньше 768px */
 @media (max-width: 768px) {
   .description {
@@ -218,6 +245,7 @@
   }
   .description__title {
     font-size: 0.8rem;
+    padding: 1rem 1rem;
   }
 }
 /* Адаптивные стили для устройств меньше 375px */
@@ -256,6 +284,7 @@
 .directions__title {
   color: #2d1300;
   font-weight: 700;
+  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 2rem 4rem;
@@ -273,12 +302,13 @@
 .directions__list li {
   display: flex;
   color: #2d1300;
-  font-weight: 600;
+  font-size: 1rem;
+  font-family: "NotoSans_Regular";
   text-align: center;
   flex-grow: 1;
   flex-shrink: 1;
   padding: 1rem;
-  height: 4.5rem;
+  height: 6rem;
   flex-basis: calc(50% - 10px);
   max-width: calc(39% - 10px);
   box-sizing: border-box;
@@ -287,7 +317,7 @@
   align-items: center;
 }
 .directions__line {
-  width: 83%;
+  width: 87%;
   margin: 5rem 0 0;
   height: 2px;
   background-color: #BAA264;
@@ -297,13 +327,16 @@
   .directions {
     margin: 2rem 0 1rem;
   }
+  .directions__title {
+    font-size: 1.1rem;
+  }
   .directions__list {
     gap: 27px;
     width: 100%;
     justify-content: center;
   }
   .directions__list li {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .directions__line {
     margin: 1rem 0 0;
@@ -379,6 +412,7 @@
 .team__title {
   color: #2d1300;
   font-weight: 700;
+  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 1rem 3rem;
@@ -404,6 +438,7 @@
   margin-top: 20px;
   color: #2d1300;
   font-weight: 600;
+  font-family: "NotoSans_Regular";
   text-align: center;
 }
 .team__member {
@@ -413,6 +448,7 @@
 }
 .team__jobtitle {
   margin-top: 0;
+  font-family: "NotoSans_Regular";
 }
 
 @media (max-width: 1024px) {
@@ -422,6 +458,9 @@
   .team__image {
     width: 170px;
     height: 170px;
+  }
+  .team__title {
+    font-size: 1.1rem;
   }
   .team__jobtitle, .team__captionfio {
     font-size: 0.8rem;
@@ -434,12 +473,12 @@
     margin: 2rem 0 1rem;
   }
   .team__image {
-    width: 135px;
-    height: 135px;
+    width: 150px;
+    height: 150px;
   }
   .team__jobtitle, .team__captionfio {
-    font-size: 0.7rem;
-    margin: 16px 20px 0;
+    font-size: 0.8rem;
+    margin: 16px 22px 0;
   }
   .team__title {
     font-size: 1.1rem;
@@ -452,11 +491,11 @@
     margin: 2rem 0 1rem;
   }
   .team__image {
-    width: 96px;
-    height: 96px;
+    width: 116px;
+    height: 116px;
   }
   .team__jobtitle, .team__captionfio {
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     margin: 7px 7px 0;
   }
   .team__title {
@@ -470,12 +509,12 @@
     margin: 2rem 0 1rem;
   }
   .team__image {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
   }
   .team__jobtitle, .team__captionfio {
-    font-size: 0.55rem;
-    margin: 7px 13px 0;
+    font-size: 0.6rem;
+    margin: 7px 8px 0;
   }
   .team__title {
     font-size: 1.1rem;
@@ -506,6 +545,7 @@
   justify-content: center;
   width: 83%;
   position: relative;
+  flex-direction: column;
 }
 
 .carousel {
@@ -540,6 +580,7 @@
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -550,7 +591,7 @@
 }
 
 .arrow:hover {
-  background: rgba(0, 123, 255, 0.8);
+  background: rgba(255, 136, 0, 0.8);
   color: #fff;
 }
 
@@ -560,6 +601,30 @@
 
 .arrow.next {
   right: 10px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot:hover {
+  background: #999;
+}
+
+.dot.active {
+  background: #ff5100;
 }
 
 @media (max-width: 1024px) {
@@ -572,6 +637,9 @@
   .carouselContainer {
     width: 88%;
   }
+  .arrow {
+    display: none;
+  }
 }
 /* Адаптивные стили для устройств меньше 425px */
 @media (max-width: 425px) {
@@ -579,12 +647,17 @@
     width: 98%;
   }
   .arrow {
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     font-size: 1rem;
   }
+  .slide {
+    flex: 0 0 35%;
+    margin: 5% 5px;
+  }
   .carousel {
-    width: 82%;
+    width: 89%;
+    touch-action: manipulation;
   }
 }
 /* Адаптивные стили для устройств меньше 375px */
@@ -593,6 +666,14 @@
     width: 31px;
     height: 31px;
     font-size: 1rem;
+  }
+  .carousel {
+    width: 95%;
+    min-width: 253px;
+  }
+  .slide {
+    flex: 0 0 37%;
+    margin: 5% 1%;
   }
 }
 /* Адаптивные стили для устройств меньше 320px */
@@ -668,13 +749,14 @@
   border-radius: 15px;
   display: flex;
   width: 65rem;
-  height: 28rem;
+  height: 30rem;
   margin: 1%;
   align-items: center;
 }
 .biography__title {
   color: #2d1300;
   font-weight: 700;
+  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 2rem 4rem;
@@ -693,18 +775,20 @@
 .biography__container_description {
   color: #2d1300;
   display: flex;
+  font-family: "NotoSans_Regular";
   flex-direction: column;
   align-items: center;
 }
 .biography__title_fio {
   color: #2d1300;
+  font-family: "NotoSans_Regular";
   font-weight: 700;
   font-size: 1.3rem;
   text-align: center;
   margin: 0;
 }
 .biography p {
-  padding: 1% 8%;
+  padding: 1% 4%;
 }
 
 @media (max-width: 1024px) {
@@ -712,8 +796,14 @@
     font-size: 0.8rem;
     margin: 2rem 0 1rem;
   }
+  .biography__title_fio {
+    font-size: 1rem;
+  }
+  .biography__title {
+    font-size: 1.1rem;
+  }
   .biography__container {
-    width: 48rem;
+    width: 50rem;
   }
   .biography__image {
     width: 204px;
@@ -724,20 +814,22 @@
 @media (max-width: 768px) {
   .biography {
     margin: 2rem 0 1rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   .biography__title_fio {
     font-size: 1.1rem;
   }
   .biography__container {
-    width: 38rem;
+    width: 40rem;
   }
   .biography__image {
     width: 186px;
     height: 211px;
+    margin: 2%;
   }
   .biography p {
     padding: 1% 3%;
+    font-size: 0.8rem;
   }
   .biography__title {
     font-size: 1.1rem;
@@ -756,7 +848,7 @@
   .biography__container {
     flex-direction: column;
     width: 23rem;
-    height: 32rem;
+    height: 38rem;
   }
   .biography__image {
     width: 153px;
@@ -764,6 +856,7 @@
   }
   .biography p {
     padding: 1% 3%;
+    font-size: 0.7rem;
   }
   .biography__title {
     font-size: 1.1rem;
@@ -774,17 +867,20 @@
 @media (max-width: 375px) {
   .biography__container {
     width: 20rem;
-    height: 34rem;
+    height: 42rem;
   }
   .biography__image {
     width: 137px;
     height: 169px;
   }
+  .biography p {
+    font-size: 0.7rem;
+  }
 }
 /* Адаптивные стили для устройств меньше 320px */
 @media (max-width: 320px) {
   .biography__container {
-    width: 16rem;
+    width: 18rem;
     height: 35rem;
   }
   .biography__image {
@@ -794,6 +890,9 @@
   .biography__title {
     font-size: 0.9rem;
     padding: 1rem 2rem;
+  }
+  .biography p {
+    font-size: 0.6rem;
   }
 }
 .grantswon {
@@ -816,6 +915,7 @@
 .grantswon__title {
   color: #2d1300;
   font-weight: 700;
+  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 1rem 3rem;
@@ -825,17 +925,19 @@
 }
 .grantswon__name {
   color: #2d1300;
+  font-family: "NotoSans_Regular";
   font-weight: 700;
   font-size: 1.2rem;
   text-align: center;
   margin: 33px 0 0;
 }
 .grantswon__text {
+  font-family: "NotoSans_Regular";
   padding: 0 6%;
   font-size: 0.9rem;
 }
 .grantswon__line {
-  width: 83%;
+  width: 87%;
   margin: 5rem 0 0;
   height: 2px;
   background-color: #BAA264;
@@ -848,8 +950,14 @@
   .grantswon__container {
     width: 43rem;
   }
+  .grantswon__title {
+    font-size: 1.1rem;
+  }
   .grantswon__text {
     font-size: 0.8rem;
+  }
+  .grantswon__name {
+    font-size: 0.9rem;
   }
 }
 /* Адаптивные стили для устройств меньше 768px */
@@ -858,10 +966,10 @@
     margin: 2rem 0 1rem;
   }
   .grantswon__container {
-    width: 33rem;
+    width: 38rem;
   }
   .grantswon__text {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   .grantswon__name {
     font-size: 1.1rem;
@@ -884,19 +992,20 @@
   }
   .grantswon__name {
     font-size: 0.9rem;
+    padding: 0 15%;
   }
 }
 /* Адаптивные стили для устройств меньше 375px */
 @media (max-width: 375px) {
   .grantswon__img {
-    width: 78%;
+    width: 88%;
   }
   .grantswon__container {
     width: 20rem;
   }
   .grantswon__name {
     font-size: 0.9rem;
-    padding: 0 34px;
+    padding: 0 17%;
   }
 }
 /* Адаптивные стили для устройств меньше 320px */
@@ -936,12 +1045,14 @@
 .projects__title {
   color: #2d1300;
   font-weight: 700;
+  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 1rem 3rem;
 }
 .projects__title_name {
   color: #2d1300;
+  font-family: "Merriweather_Regular";
   font-weight: 700;
   font-size: 1.3rem;
   text-align: center;
@@ -953,6 +1064,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #F8F5E8;
+  font-family: "NotoSans_Regular";
   padding: 20px;
   border-radius: 15px;
   margin: 0 11px;
@@ -1012,10 +1124,16 @@
   .projects {
     margin: 2rem 0 1rem;
   }
+  .projects__name {
+    font-size: 1rem;
+  }
+  .projects__title {
+    font-size: 1.1rem;
+  }
   .projects__slide {
     width: 580px;
     margin: 0 36px;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 @media (max-width: 768px) {
@@ -1023,12 +1141,12 @@
     margin: 2rem 0 1rem;
   }
   .projects__slide {
-    width: 496px;
-    margin: 0 36px;
-    font-size: 0.7rem;
+    width: 541px;
+    margin: 0px 16px;
+    font-size: 0.8rem;
   }
   .projects__image {
-    width: 90%;
+    width: 70%;
   }
   .projects__name {
     font-size: 0.8rem;
@@ -1041,8 +1159,8 @@
     padding: 1rem 2rem;
   }
   .projects__slide {
-    width: 281px;
-    margin: 0px 11px;
+    width: 320px;
+    margin: 0 1px;
     font-size: 0.6rem;
   }
 }
@@ -1053,8 +1171,8 @@
     padding: 1rem 2rem;
   }
   .projects__slide {
-    width: 239px;
-    margin: 0px 19px;
+    width: 289px;
+    margin: 0px 7px;
     font-size: 0.6rem;
   }
   .projects__name {
@@ -1100,31 +1218,16 @@
 .news__title {
   color: #2d1300;
   font-weight: 700;
+  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 1rem 3rem;
 }
 .news__line {
-  width: 83%;
+  width: 87%;
   margin: 5rem 0 0;
   height: 2px;
   background-color: #BAA264;
-}
-
-.cardsWrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.cardWrapper {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-  /* Увеличено для лучшего 3D эффекта */
 }
 
 .frequentquestions {
@@ -1134,13 +1237,28 @@
   width: 100%;
   margin: 5rem 0 1rem;
 }
-
 .frequentquestions__title {
   color: #2d1300;
   font-weight: 700;
+  font-family: "Merriweather_Regular";
   font-size: 1.5rem;
   text-align: center;
   padding: 1rem 3rem;
+}
+.frequentquestions__cardsWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+.cardWrapper {
+  position: relative;
+  width: 46rem;
+  height: 15.5rem;
+  perspective: 1000px;
+  /* Увеличено для лучшего 3D эффекта */
 }
 
 /* 3D карточка */
@@ -1155,7 +1273,7 @@
 }
 
 .cardWrapper:hover .cardObject {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 
 /* Общие стили лицевой и обратной стороны */
@@ -1167,7 +1285,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
   box-sizing: border-box;
   backface-visibility: hidden;
 }
@@ -1182,7 +1300,9 @@
 .faceBack {
   background: #F8F5E8;
   color: #2d1300;
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
+  font-size: 0.9rem;
+  font-family: "NotoSans_Regular";
   text-align: center;
 }
 
@@ -1190,17 +1310,114 @@
   text-align: center;
 }
 
-.title {
+.question_title {
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: "NotoSans_Bold";
 }
 
 .infoWrapper {
   text-align: center;
 }
 
-.infoTitle {
-  font-size: 1.2rem;
+.answerContent {
+  text-align: left;
+}
+
+h3 {
+  font-size: 1.1rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+ul li,
+ol li {
+  margin-bottom: 0.3rem;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #E53935;
+  /* Цвет можно поменять */
+}
+
+@media (max-width: 1024px) {
+  .frequentquestions__title {
+    font-size: 1.1rem;
+  }
+  .question_title {
+    font-size: 0.9rem;
+  }
+  /* Обратная сторона */
+  .faceBack {
+    font-size: 0.7rem;
+  }
+  .cardWrapper {
+    width: 40rem;
+    height: 13rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 768px */
+@media (max-width: 768px) {
+  .cardWrapper {
+    width: 40rem;
+    height: 13rem;
+  }
+  /* Обратная сторона */
+  .faceBack {
+    font-size: 0.7rem;
+  }
+  .title {
+    font-size: 1rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 425px */
+@media (max-width: 425px) {
+  .cardWrapper {
+    width: 23rem;
+    height: 13rem;
+  }
+  /* Обратная сторона */
+  .faceBack {
+    font-size: 0.6rem;
+  }
+  .face {
+    padding: 0.3rem;
+  }
+  .frequentquestions__cardsWrapper {
+    padding: 0.5rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 375px */
+@media (max-width: 375px) {
+  .cardWrapper {
+    width: 20rem;
+    height: 15rem;
+  }
+  /* Обратная сторона */
+  .faceBack {
+    font-size: 0.6rem;
+  }
+  .face {
+    padding: 0.3rem;
+  }
+  .frequentquestions__cardsWrapper {
+    padding: 0.5rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 320px */
+@media (max-width: 320px) {
+  .cardWrapper {
+    width: 19rem;
+    height: 15rem;
+  }
+  .frequentquestions__cardsWrapper {
+    padding: 0.5rem;
+  }
 }/*# sourceMappingURL=main.module.css.map */

@@ -9,7 +9,7 @@ function AdminPanel() {
     const fetchNews = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/news', {
+        const res = await axios.get('http://localhost:3000/api/news', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setNews(res.data);

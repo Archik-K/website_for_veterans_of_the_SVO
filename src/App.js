@@ -7,12 +7,13 @@ import Footer from './components/Footer';
 import Biography from './components/Biography';
 import Grantswon from './components/Grantswon';
 import Projects from './components/Projects';
-import News from './components/News';
+import FrequentQuestions from './components/FrequentQuestions'
+/* import News from './components/News'; */
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './components/Login';
+/* import Login from './components/Login';
 import AdminPanel from './components/AdminPanel';
-import NewsEditor from './components/NewsEditor';
+import NewsEditor from './components/NewsEditor'; */
 
 // Компонент для защищённых маршрутов
 function PrivateRoute({ children }) {
@@ -28,7 +29,8 @@ function MainPage() {
       <Description />
       <Directions />
       <Projects />
-      <News />
+      <FrequentQuestions/>
+  {/*     <News /> */}
       <Team />
       <Grantswon />
       <Biography />
@@ -43,14 +45,14 @@ function App() {
       <Routes>
         {/* Публичная часть сайта */}
         <Route path="/" element={<MainPage />} />
-        {/* Маршрут для входа */}
-        <Route path="/login" element={<Login />} />
+        {/* Маршрут для входа */}{/* 
+        <Route path="/login" element={<Login />} /> */}
         {/* Защищённые маршруты для админ-панели */}
         <Route
           path="/admin"
           element={
             <PrivateRoute>
-              <AdminPanel />
+         {/*      <AdminPanel /> */}
             </PrivateRoute>
           }
         />
@@ -58,7 +60,7 @@ function App() {
           path="/admin/news/:id?"
           element={
             <PrivateRoute>
-              <NewsEditor />
+         {/*      <NewsEditor /> */}
             </PrivateRoute>
           }
         />

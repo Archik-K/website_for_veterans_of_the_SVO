@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+/* import React, { useEffect, useState } from 'react';
 import { db } from '../firebase';  // Импортируем Firebase
 import { collection, getDocs } from 'firebase/firestore';
 import styles from "../assets/styles/main.module.css";
@@ -34,3 +34,4 @@ const News = () => {
 };
 
 export default News;
+ */

@@ -1,112 +1,107 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styles from "../assets/styles/main.module.css";
 
-const Carousel = ({
+const ContinuousCarousel = ({
   slidesData,
-  visibleSlides = 3,    // Количество видимых слайдов (по умолчанию 3)
-  interval = 3000,
+  visibleSlides = 3,
+  speed = 15,
   renderSlideContent,
-  persistKey            // Ключ для сохранения текущего индекса в localStorage
+  persistKey,
 }) => {
-  // Состояние для количества видимых слайдов (принимается из пропсов)
-  const [currentVisibleSlides, setCurrentVisibleSlides] = useState(visibleSlides);
-  
-  useEffect(() => {
-    setCurrentVisibleSlides(visibleSlides);
-  }, [visibleSlides]);
+  const cloneCount = Math.min(visibleSlides, slidesData.length);
+  const slides = [
+    ...slidesData.slice(-cloneCount),
+    ...slidesData,
+    ...slidesData.slice(0, cloneCount),
+  ];
 
-  // Вычисляем количество клонов для зацикленного скролла
-  const cloneCount = Math.min(currentVisibleSlides, slidesData.length);
-  
-  // Формируем массив с клонами: [последние клоны, оригинальные слайды, первые клоны]
-  const slides = slidesData.length > cloneCount
-    ? [
-        ...slidesData.slice(-cloneCount),
-        ...slidesData,
-        ...slidesData.slice(0, cloneCount)
-      ]
-    : slidesData;
-
-  const totalSlides = slides.length;
-  // Начальный индекс равен cloneCount (если используются клоны), чтобы отобразить оригинальные слайды
-  const initialIndex = slidesData.length > cloneCount ? cloneCount : 0;
-  const [currentIndex, setCurrentIndex] = useState(initialIndex);
-  
-  // Если задан persistKey, пытаемся загрузить сохранённое значение currentIndex из localStorage
-  useEffect(() => {
-    if (persistKey) {
-      const savedIndex = localStorage.getItem(persistKey);
-      if (savedIndex !== null) {
-        setCurrentIndex(Number(savedIndex));
-      }
-    }
-  }, [persistKey]);
-
-  // Сохраняем currentIndex в localStorage, если persistKey задан
-  useEffect(() => {
-    if (persistKey) {
-      localStorage.setItem(persistKey, currentIndex);
-    }
-  }, [currentIndex, persistKey]);
-
-  // Флаг анимации
-  const [transitionEnabled, setTransitionEnabled] = useState(true);
-  // Флаг для остановки автопрокрутки при наведении
-  const [isHovered, setIsHovered] = useState(false);
   const trackRef = useRef(null);
+  const [offset, setOffset] = useState(0);
+  const [slideWidth, setSlideWidth] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartX = useRef(0);
+  const dragOffset = useRef(0);
 
-  // Функция для переключения на определённый слайд
-  const goToSlide = (index) => {
-    setCurrentIndex(index);
-  };
+  const animationFrameId = useRef(null);
+  const lastTimeRef = useRef(null);
 
-  // Автопрокрутка слайдов (если мышь не находится над каруселью)
   useEffect(() => {
-    if (isHovered) return;
-    const timer = setInterval(() => {
-      goToSlide(currentIndex + 1);
-    }, interval);
-    return () => clearInterval(timer);
-  }, [currentIndex, interval, isHovered]);
+    if (trackRef.current && trackRef.current.children.length > 0) {
+      const firstSlide = trackRef.current.children[0];
+      setSlideWidth(firstSlide.offsetWidth);
+      setOffset(firstSlide.offsetWidth * cloneCount);
+    }
+  }, [cloneCount, slidesData.length]);
 
-  // Обработка перехода для зацикленной карусели (бесшовный скролл)
   useEffect(() => {
-    if (slidesData.length <= cloneCount) return;
-    const handleTransitionEnd = () => {
-      if (currentIndex === totalSlides - cloneCount) {
-        setTransitionEnabled(false);
-        goToSlide(cloneCount);
-      } else if (currentIndex === 0) {
-        setTransitionEnabled(false);
-        goToSlide(totalSlides - cloneCount * 2);
+    const animate = (time) => {
+      if (lastTimeRef.current != null && !isDragging && slideWidth > 0) {
+        const deltaTime = (time - lastTimeRef.current) / 1000;
+        let newOffset = offset + speed * deltaTime;
+        const resetThreshold = slideWidth * (cloneCount + slidesData.length);
+        if (newOffset >= resetThreshold) {
+          newOffset -= slideWidth * slidesData.length;
+        }
+        setOffset(newOffset);
       }
-      setTimeout(() => setTransitionEnabled(true), 50);
+      lastTimeRef.current = time;
+      animationFrameId.current = requestAnimationFrame(animate);
     };
 
-    const track = trackRef.current;
-    track.addEventListener("transitionend", handleTransitionEnd);
-    return () => track.removeEventListener("transitionend", handleTransitionEnd);
-  }, [currentIndex, totalSlides, cloneCount, slidesData.length]);
+    animationFrameId.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrameId.current);
+  }, [offset, speed, slideWidth, isDragging, cloneCount, slidesData.length]);
 
-  const nextSlide = () => goToSlide(currentIndex + 1);
-  const prevSlide = () => goToSlide(currentIndex - 1);
+  const activeIndex = (() => {
+    if (slideWidth === 0) return 0;
+    const computedIndex = Math.floor((offset - slideWidth * cloneCount + slideWidth / 2) / slideWidth);
+    return ((computedIndex % slidesData.length) + slidesData.length) % slidesData.length;
+  })();
+
+  const handleDotClick = (index) => {
+    if (slideWidth > 0) {
+      setOffset(slideWidth * (cloneCount + index));
+      lastTimeRef.current = performance.now();
+    }
+  };
+
+  // Touch + Mouse drag handlers
+  const handleStart = (clientX) => {
+    setIsDragging(true);
+    dragStartX.current = clientX;
+    dragOffset.current = offset;
+    lastTimeRef.current = null;
+  };
+
+  const handleMove = (clientX) => {
+    if (!isDragging) return;
+    const distance = clientX - dragStartX.current;
+    setOffset(dragOffset.current - distance);
+  };
+
+  const handleEnd = () => {
+    setIsDragging(false);
+  };
 
   return (
     <div className={styles.carouselContainer}>
-      <button className={`${styles.arrow} ${styles.prev}`} onClick={prevSlide}>
-        &#9665;
-      </button>
       <div
         className={styles.carousel}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseDown={(e) => handleStart(e.clientX)}
+        onMouseMove={(e) => handleMove(e.clientX)}
+        onMouseUp={handleEnd}
+        onMouseLeave={handleEnd}
+        onTouchStart={(e) => handleStart(e.touches[0].clientX)}
+        onTouchMove={(e) => handleMove(e.touches[0].clientX)}
+        onTouchEnd={handleEnd}
       >
         <div
           ref={trackRef}
           className={styles.slideTrack}
           style={{
-            transform: `translateX(-${(currentIndex * 100) / currentVisibleSlides}%)`,
-            transition: transitionEnabled ? "transform 0.8s ease-in-out" : "none"
+            transform: `translateX(-${offset}px)`,
+            transition: "none",
+            cursor: isDragging ? "grabbing" : "grab",
           }}
         >
           {slides.map((slide, index) => (
@@ -116,11 +111,18 @@ const Carousel = ({
           ))}
         </div>
       </div>
-      <button className={`${styles.arrow} ${styles.next}`} onClick={nextSlide}>
-        &#9655;
-      </button>
+
+      <div className={styles.dots}>
+        {slidesData.map((_, index) => (
+          <span
+            key={index}
+            className={`${styles.dot} ${index === activeIndex ? styles.active : ""}`}
+            onClick={() => handleDotClick(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default Carousel;
+export default ContinuousCarousel;

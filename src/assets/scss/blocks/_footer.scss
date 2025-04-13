@@ -16,7 +16,7 @@
     display: flex;
     color: #2d1300;
     font-weight: 700;
-    @extend %font-face-regular;
+    font-family: 'Merriweather_Regular';
     font-size: 0.8rem;
     height: 6rem;
     flex-direction: column;
@@ -44,7 +44,7 @@
 @media (max-width: 425px) {
   .footer {
     &__rights {
-      font-size: 0.5rem;
+      font-size: 0.41rem;
       width: 310px;
     }
   }

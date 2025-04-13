@@ -22,7 +22,7 @@ const Header = () => {
       <nav className={`${styles.header__nav} ${menuOpen ? styles.nav_open : ""}`}>
         <a href="#directions-section" className={styles.header__link} onClick={closeMenu}>О нас</a>
         <a href="#projects-section" className={styles.header__link} onClick={closeMenu}>Проекты</a>
-        <a href="/" className={styles.header__link} onClick={closeMenu}>Новости</a>
+{/*         <a href="/" className={styles.header__link} onClick={closeMenu}>Новости</a> */}
         <a href="#team-section" className={styles.header__link} onClick={closeMenu}>Команда</a>
         <a href="#grantswon-section" className={styles.header__link} onClick={closeMenu}>Выигранные гранты</a>
         <a href="#biography-section" className={styles.header__link} onClick={closeMenu}>Биография руководителя</a>

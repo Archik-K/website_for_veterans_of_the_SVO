@@ -4,6 +4,7 @@
   justify-content: center;
   width: 83%;
   position: relative;
+  flex-direction: column;
 }
 
 .carousel {
@@ -38,6 +39,7 @@
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,7 +50,7 @@
 }
 
 .arrow:hover {
-  background: rgba(0, 123, 255, 0.8);
+  background: rgba(255, 136, 0, 0.8);
   color: #fff;
 }
 
@@ -58,6 +60,30 @@
 
 .arrow.next {
   right: 10px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot:hover {
+  background: #999;
+}
+
+.dot.active {
+  background: #ff5100;
 }
 
 @media (max-width: 1024px) {
@@ -71,6 +97,10 @@
   .carouselContainer {
     width: 88%;
   }
+
+  .arrow {
+    display: none;
+  }
 }
 
 /* Адаптивные стили для устройств меньше 425px */
@@ -80,13 +110,19 @@
   }
 
   .arrow {
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
     font-size: 1rem;
   }
 
+  .slide {
+    flex: 0 0 calc(70% / 2);
+    margin: 5% 5px;
+  }
+
   .carousel {
-    width: 82%;
+    width: 89%;
+    touch-action: manipulation;
   }
 }
 
@@ -97,6 +133,16 @@
     width: 31px;
     height: 31px;
     font-size: 1rem;
+  }
+
+  .carousel {
+    width: 95%;
+    min-width: 253px;
+  }
+
+  .slide {
+    flex: 0 0 calc(74% / 2);
+    margin: 5% 1%;
   }
 }
 

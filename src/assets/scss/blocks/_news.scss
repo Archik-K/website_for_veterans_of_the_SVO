@@ -17,7 +17,7 @@
   &__title {
     color: $the-main-color-of-the-text;
     font-weight: 700;
-    @extend %font-face-regular;
+    font-family: 'Merriweather_Regular';
     font-size: 1.5rem;
     text-align: center;
     padding: 1rem 3rem;

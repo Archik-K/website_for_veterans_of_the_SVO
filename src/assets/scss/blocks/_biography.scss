@@ -10,7 +10,7 @@
     border-radius: 15px;
     display: flex;
     width: 65rem;
-    height: 28rem;
+    height: 30rem;
     margin: 1%;
     align-items: center;
   }
@@ -18,7 +18,7 @@
   &__title {
     color: $the-main-color-of-the-text;
     font-weight: 700;
-    @extend %font-face-regular;
+    font-family: 'Merriweather_Regular';
     font-size: 1.5rem;
     text-align: center;
     padding: 2rem 4rem;
@@ -39,13 +39,14 @@
   &__container_description {
     color: $the-main-color-of-the-text;
     display: flex;
+    font-family: 'NotoSans_Regular';
     flex-direction: column;
     align-items: center;
   }
 
   &__title_fio {
     color: $the-main-color-of-the-text;
-    @extend %font-face-regular;
+    font-family: 'NotoSans_Regular';
     font-weight: 700;
     font-size: 1.3rem;
     text-align: center;
@@ -53,7 +54,7 @@
   }
 
   & p {
-    padding: 1% 8%;
+    padding: 1% 4%;
   }
 }
 
@@ -64,8 +65,16 @@
     font-size: 0.8rem;
     margin: 2rem 0 1rem;
 
+    &__title_fio {
+      font-size: 1rem;
+    }
+
+    &__title {
+      font-size: 1.1rem;
+    }
+
     &__container {
-      width: 48rem;
+      width: 50rem;
     }
 
     &__image {
@@ -79,23 +88,25 @@
 @media (max-width: 768px) {
   .biography {
     margin: 2rem 0 1rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 
     &__title_fio {
       font-size: 1.1rem;
     }
 
     &__container {
-      width: 38rem;
+      width: 40rem;
     }
 
     &__image {
       width: 186px;
       height: 211px;
+      margin: 2%;
     }
 
     & p {
       padding: 1% 3%;
+      font-size: 0.8rem;
     }
 
     &__title {
@@ -119,7 +130,7 @@
     &__container {
       flex-direction: column;
       width: 23rem;
-      height: 32rem;
+      height: 38rem;
     }
 
     &__image {
@@ -129,6 +140,7 @@
 
     & p {
       padding: 1% 3%;
+      font-size: 0.7rem;
     }
 
     &__title {
@@ -144,12 +156,16 @@
 
     &__container {
       width: 20rem;
-      height: 34rem;
+      height: 42rem;
     }
 
     &__image {
       width: 137px;
       height: 169px;
+    }
+
+    & p {
+      font-size: 0.7rem;
     }
   }
 }
@@ -159,7 +175,7 @@
 @media (max-width: 320px) {
   .biography {
     &__container {
-      width: 16rem;
+      width: 18rem;
       height: 35rem;
     }
 
@@ -168,9 +184,15 @@
       height: 148px;
     }
 
+
     &__title {
       font-size: 0.9rem;
       padding: 1rem 2rem;
     }
+
+    & p {
+      font-size: 0.6rem;
+    }
+
   }
 }

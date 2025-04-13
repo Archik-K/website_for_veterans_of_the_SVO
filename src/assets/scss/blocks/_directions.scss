@@ -8,7 +8,7 @@
   &__title {
     color: $the-main-color-of-the-text;
     font-weight: 700;
-    @extend %font-face-regular;
+    font-family: 'Merriweather_Regular';
     font-size: 1.5rem;
     text-align: center;
     padding: 2rem 4rem;
@@ -27,13 +27,13 @@
     & li {
       display: flex;
       color: $the-main-color-of-the-text;
-      font-weight: 600;
-      @extend %font-face-regular;
+      font-size: 1rem;
+      font-family: 'NotoSans_Regular';
       text-align: center;
       flex-grow: 1;
       flex-shrink: 1;
       padding: 1rem;
-      height: 4.5rem;
+      height: 6rem;
       flex-basis: calc(50% - 10px);
       max-width: calc(39% - 10px);
       box-sizing: border-box;
@@ -53,13 +53,17 @@
   .directions {
     margin: 2rem 0 1rem;
 
+    &__title {
+      font-size: 1.1rem;
+    }
+
     &__list {
       gap: 27px;
       width: 100%;
       justify-content: center;
 
       li {
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
     }
 

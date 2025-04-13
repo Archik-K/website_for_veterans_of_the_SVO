@@ -19,7 +19,7 @@
   &__title {
     color: $the-main-color-of-the-text;
     font-weight: 700;
-    @extend %font-face-regular;
+    font-family: 'Merriweather_Regular';
     font-size: 1.5rem;
     text-align: center;
     padding: 1rem 3rem;
@@ -31,7 +31,7 @@
 
   &__name {
     color: $the-main-color-of-the-text;
-    @extend %font-face-regular;
+    font-family: 'NotoSans_Regular';
     font-weight: 700;
     font-size: 1.2rem;
     text-align: center;
@@ -39,6 +39,7 @@
   }
 
   &__text {
+    font-family: 'NotoSans_Regular';
     padding: 0 6%;
     font-size: 0.9rem;
   }
@@ -56,8 +57,16 @@
       width: 43rem;
     }
 
+    &__title {
+      font-size: 1.1rem;
+    }
+
     &__text {
       font-size: 0.8rem;
+    }
+
+    &__name {
+      font-size: 0.9rem;
     }
   }
 }
@@ -68,11 +77,11 @@
     margin: 2rem 0 1rem;
 
     &__container {
-      width: 33rem;
+      width: 38rem;
     }
 
     &__text {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
     }
 
     &__name {
@@ -101,6 +110,7 @@
 
     &__name {
       font-size: 0.9rem;
+      padding: 0 15%;
     }
   }
 }
@@ -109,7 +119,7 @@
 @media (max-width: 375px) {
   .grantswon {
     &__img {
-      width: 78%;
+      width: 88%;
     }
 
     &__container {
@@ -118,7 +128,7 @@
 
     &__name {
       font-size: 0.9rem;
-      padding: 0 34px;
+      padding: 0 17%;
     }
   }
 }

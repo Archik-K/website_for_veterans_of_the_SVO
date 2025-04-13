@@ -1,34 +1,40 @@
-.cardsWrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.cardWrapper {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-  /* Увеличено для лучшего 3D эффекта */
-}
-
 .frequentquestions {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   margin: 5rem 0 1rem;
+
+  &__title {
+    color: $the-main-color-of-the-text;
+    font-weight: 700;
+    font-family: 'Merriweather_Regular';
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem 3rem;
+  }
+
+  &__cardsWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
 }
 
-.frequentquestions__title {
-  color: $the-main-color-of-the-text;
-  font-weight: 700;
-  font-size: 1.5rem;
-  text-align: center;
-  padding: 1rem 3rem;
+
+
+.cardWrapper {
+  position: relative;
+  width: 46rem;
+  height: 15.5rem;
+  perspective: 1000px;
+  /* Увеличено для лучшего 3D эффекта */
 }
+
+
+
 
 /* 3D карточка */
 .cardObject {
@@ -42,7 +48,7 @@
 }
 
 .cardWrapper:hover .cardObject {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 
 /* Общие стили лицевой и обратной стороны */
@@ -54,7 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
   box-sizing: border-box;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -70,7 +76,9 @@
 .faceBack {
   background: $the-color-of-the-blocks;
   color: $the-main-color-of-the-text;
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
+  font-size: 0.9rem;
+  font-family: 'NotoSans_Regular';
   text-align: center;
 }
 
@@ -78,17 +86,146 @@
   text-align: center;
 }
 
-.title {
+.question_title {
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: 'NotoSans_Bold';
 }
 
 .infoWrapper {
   text-align: center;
 }
 
-.infoTitle {
-  font-size: 1.2rem;
+
+.answerContent {
+  text-align: left;
+}
+
+h3 {
+  font-size: 1.1rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+ul li,
+ol li {
+  margin-bottom: 0.3rem;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #E53935;
+  /* Цвет можно поменять */
+}
+
+
+
+@media (max-width: 1024px) {
+  .frequentquestions {
+    &__title {
+      font-size: 1.1rem;
+    }
+  }
+
+  .question_title {
+    font-size: 0.9rem;
+  }
+
+  /* Обратная сторона */
+  .faceBack {
+    font-size: 0.7rem;
+  }
+
+  .cardWrapper {
+    width: 40rem;
+    height: 13rem;
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 768px */
+@media (max-width: 768px) {
+  .cardWrapper {
+    width: 40rem;
+    height: 13rem;
+  }
+
+  /* Обратная сторона */
+  .faceBack {
+    font-size: 0.7rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+
+}
+
+
+/* Адаптивные стили для устройств меньше 425px */
+@media (max-width: 425px) {
+  .cardWrapper {
+    width: 23rem;
+    height: 13rem;
+  }
+
+  /* Обратная сторона */
+  .faceBack {
+    font-size: 0.6rem;
+  }
+
+  .face {
+    padding: 0.3rem;
+  }
+
+  .frequentquestions {
+    &__cardsWrapper {
+      padding: 0.5rem;
+    }
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 375px */
+@media (max-width: 375px) {
+  .cardWrapper {
+    width: 20rem;
+    height: 15rem;
+  }
+
+  /* Обратная сторона */
+  .faceBack {
+    font-size: 0.6rem;
+  }
+
+  .face {
+    padding: 0.3rem;
+  }
+
+  .frequentquestions {
+    &__cardsWrapper {
+      padding: 0.5rem;
+    }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 320px */
+@media (max-width: 320px) {
+  .cardWrapper {
+    width: 19rem;
+    height: 15rem;
+  }
+
+  .frequentquestions {
+    &__cardsWrapper {
+      padding: 0.5rem;
+    }
+  }
 }

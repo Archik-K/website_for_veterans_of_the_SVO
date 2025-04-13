@@ -1,9 +1,28 @@
-%font-face-bold {
+@font-face {
   font-family: 'Merriweather_Bold';
-  src: url('../fonts/Merriweather_Bold.ttf') format('ttf');
+  src: url('../fonts/Merriweather_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
 }
 
-%font-face-regular {
+@font-face {
   font-family: 'Merriweather_Regular';
-  src: url('../fonts/Merriweather_Regular.ttf') format('ttf');
+  src: url('../fonts/Merriweather_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSans_Regular';
+  src: url('../fonts/NotoSans_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'NotoSans_Bold';
+  src: url('../fonts/NotoSans_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }

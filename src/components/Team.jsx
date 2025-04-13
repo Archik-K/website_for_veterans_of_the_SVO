@@ -50,7 +50,7 @@ const Team = () => {
   // При ширине экрана меньше 320px показываем 2 слайда
   useEffect(() => {
     const updateVisibleSlides = () => {
-      if (window.innerWidth < 320) {
+      if (window.innerWidth < 380) {
         setVisibleSlides(2);
       } else {
         setVisibleSlides(3);
