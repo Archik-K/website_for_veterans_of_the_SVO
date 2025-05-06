@@ -23,8 +23,6 @@
   }
 }
 
-
-
 .cardWrapper {
   position: relative;
   width: 46rem;
@@ -32,8 +30,6 @@
   perspective: 1000px;
   /* Увеличено для лучшего 3D эффекта */
 }
-
-
 
 
 /* 3D карточка */
@@ -124,7 +120,11 @@ ol li {
   /* Цвет можно поменять */
 }
 
-
+@media (max-width: 1440px) {
+  .cardWrapper {
+    width: 65rem;
+  }
+}
 
 @media (max-width: 1024px) {
   .frequentquestions {
@@ -143,7 +143,7 @@ ol li {
   }
 
   .cardWrapper {
-    width: 40rem;
+    width: 50rem;
     height: 13rem;
   }
 }
@@ -196,7 +196,7 @@ ol li {
 /* Адаптивные стили для устройств меньше 375px */
 @media (max-width: 375px) {
   .cardWrapper {
-    width: 20rem;
+    width: 22rem;
     height: 15rem;
   }
 

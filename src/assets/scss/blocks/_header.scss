@@ -9,15 +9,18 @@
   -moz-box-shadow: 0px 7px 7px -3px rgba(80, 46, 34, 0.36);
   box-shadow: 0px 7px 7px -3px rgba(80, 46, 34, 0.36);
 
+  &__container {
+    width: 7%;
+  }
+
   &__logo {
-    font-size: 24px;
-    font-weight: bold;
+    width: 70%;
   }
 
   &__nav {
     display: flex;
     gap: 15px;
-    width: 80rem;
+    width: 95rem;
     align-items: center;
     justify-content: space-evenly;
   }
@@ -34,6 +37,7 @@
     }
   }
 }
+
 
 // Стили для бургер-иконки
 .burger {
@@ -53,10 +57,27 @@
   background-color: $the-main-color-of-the-text;
 }
 
+
+@media (max-width: 1350px) {
+  .header {
+    &__link {
+      font-size: 0.9rem;
+    }
+  }
+}
+
 @media (max-width: 1024px) {
   .header {
     &__link {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
+    }
+
+    &__container {
+      width: 10%;
+    }
+
+    &__logo {
+      width: 90%;
     }
   }
 }
@@ -65,6 +86,10 @@
 @media (max-width: 768px) {
   .header {
     justify-content: space-between;
+
+    &__container {
+      width: 100%;
+    }
 
     &__nav {
       display: none;
@@ -75,8 +100,11 @@
       background-color: $header-footer-color;
       width: 100%;
       height: 42%;
-      text-align: center;
       padding: 1rem 0;
+    }
+
+    &__logo {
+      width: 16%;
     }
   }
 
@@ -117,5 +145,45 @@
 
   .crossLine:last-child {
     transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 425px */
+@media (max-width: 425px) {
+  .header {
+    &__logo {
+      width: 25%;
+    }
+
+    &__container {
+      width: 100%;
+    }
+  }
+
+  .burger {
+    width: 50px;
+  }
+}
+
+/* Адаптивные стили для устройств меньше 375px */
+@media (max-width: 375px) {
+  .header {
+    &__logo {
+      width: 30%;
+    }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 320px */
+@media (max-width: 320px) {
+  .header {
+    &__logo {
+      width: 35%;
+    }
+  }
+
+  .burger {
+    width: 50px;
   }
 }

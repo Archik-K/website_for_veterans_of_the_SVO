@@ -8,8 +8,7 @@
   margin: 4% 0 0 0;
 
   &__logo {
-    font-size: 24px;
-    font-weight: bold;
+    width: 70%;
   }
 
   &__rights {
@@ -17,6 +16,7 @@
     color: #2d1300;
     font-weight: 700;
     font-family: 'Merriweather_Regular';
+    width: 60rem;
     font-size: 0.8rem;
     height: 6rem;
     flex-direction: column;
@@ -27,14 +27,35 @@
       margin: 4px;
     }
   }
+
+  &__container {
+    width: 7%;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .footer {
+    &__logo {
+      width: 85%;
+    }
+
+    &__rights {
+      width: 45rem;
+    }
+  }
 }
 
 /* Адаптивные стили для устройств меньше 768px */
 @media (max-width: 768px) {
   .footer {
+    &__container {
+      width: 12%;
+    }
+
     &__rights {
       font-size: 0.6rem;
-      width: 55%;
+      width: 30rem;
     }
   }
 }
@@ -44,8 +65,17 @@
 @media (max-width: 425px) {
   .footer {
     &__rights {
-      font-size: 0.41rem;
-      width: 310px;
+      font-size: 0.45rem;
+      width: 283px;
+      text-align: center;
+    }
+
+    &__logo {
+      width: 90%;
+    }
+
+    &__container {
+      width: 18%;
     }
   }
 }
@@ -56,7 +86,7 @@
   .footer {
     &__rights {
       font-size: 0.48rem;
-      width: 450px;
+      width: 250px;
     }
   }
 }
@@ -66,8 +96,12 @@
 @media (max-width: 320px) {
   .footer {
     &__rights {
-      font-size: 0.48rem;
+      font-size: 0.45rem;
       width: 140px;
+    }
+
+    &__logo {
+      width: 70%;
     }
   }
 }

@@ -1,0 +1,135 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  height: 65%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  background-color: $header-footer-color;
+  color: #333;
+  font-weight: 700;
+  font-family: 'Merriweather', serif;
+  font-size: 1.1rem;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.content {
+  color: $the-main-color-of-the-text;
+  font-weight: 700;
+  font-family: 'NotoSans_Bold';
+  font-size: 1rem;
+  padding: 1rem 3rem;
+}
+
+.openButton {
+  text-decoration: none;
+  color: $the-main-color-of-the-text;
+  font-weight: 700;
+  font-family: 'Merriweather_Regular';
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+}
+
+.openButton:hover {
+  color: #74231d;
+}
+
+.docList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.docItem {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1350px) {
+  .openButton {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .openButton {
+    font-size: 0.7rem;
+  }
+
+  .modal {
+    width: 60%;
+    height: 50%;
+  }
+
+  .content {
+    font-size: 0.9rem;
+  }
+
+  .modalHeader {
+    font-size: 1rem;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .modal {
+    width: 65%;
+  }
+
+  .docItem {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Адаптивные стили для устройств меньше 425px */
+@media (max-width: 425px) {
+  .modal {
+    width: 80%;
+    height: 60%;
+  }
+
+  .modalHeader {
+    font-size: 0.8rem;
+  }
+
+  .content {
+    font-size: 0.7rem;
+  }
+
+  .docItem {
+    margin: 12% 0;
+  }
+}

@@ -7,13 +7,10 @@ import Footer from './components/Footer';
 import Biography from './components/Biography';
 import Grantswon from './components/Grantswon';
 import Projects from './components/Projects';
-import FrequentQuestions from './components/FrequentQuestions'
-/* import News from './components/News'; */
+import FrequentQuestions from './components/FrequentQuestions';
+import Map from './components/Map';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-/* import Login from './components/Login';
-import AdminPanel from './components/AdminPanel';
-import NewsEditor from './components/NewsEditor'; */
 
 // Компонент для защищённых маршрутов
 function PrivateRoute({ children }) {
@@ -30,10 +27,10 @@ function MainPage() {
       <Directions />
       <Projects />
       <FrequentQuestions/>
-  {/*     <News /> */}
       <Team />
       <Grantswon />
       <Biography />
+      <Map/>
       <Footer />
     </>
   );
@@ -41,30 +38,28 @@ function MainPage() {
 
 function App() {
   return (
-    <Router>
+    <Router
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true
+      }}
+    >
       <Routes>
         {/* Публичная часть сайта */}
         <Route path="/" element={<MainPage />} />
-        {/* Маршрут для входа */}{/* 
-        <Route path="/login" element={<Login />} /> */}
-        {/* Защищённые маршруты для админ-панели */}
+
+        {/* Пример защищённого маршрута */}
         <Route
           path="/admin"
           element={
             <PrivateRoute>
-         {/*      <AdminPanel /> */}
+              {/* <AdminPanel /> */}
+              <div>Admin Panel Placeholder</div>
             </PrivateRoute>
           }
         />
-        <Route
-          path="/admin/news/:id?"
-          element={
-            <PrivateRoute>
-         {/*      <NewsEditor /> */}
-            </PrivateRoute>
-          }
-        />
-        {/* Если ни один маршрут не подошёл, перенаправляем на главную */}
+
+        {/* Резервный маршрут */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

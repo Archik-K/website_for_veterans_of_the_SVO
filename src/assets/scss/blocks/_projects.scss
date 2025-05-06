@@ -41,12 +41,12 @@
     font-family: 'NotoSans_Regular';
     padding: 20px;
     border-radius: 15px;
-    margin: 0 11px;
-    width: 843px;
+    margin: 0 110px;
+    width: 1390px;
   }
 
   &__image {
-    width: 38%;
+    width: 45%;
     height: auto;
     border-radius: 10px;
     object-fit: cover;
@@ -99,6 +99,15 @@
   background: #f5f5f5;
 }
 
+@media (max-width: 1440px) {
+  .projects {
+    &__slide {
+      width: 1000px;
+      margin: 0 94px;
+    }
+  }
+}
+
 
 @media (max-width: 1024px) {
   .projects {
@@ -113,8 +122,8 @@
     }
 
     &__slide {
-      width: 580px;
-      margin: 0 36px;
+      width: 795px;
+      margin: 0 14px;
       font-size: 0.9rem;
     }
   }
@@ -125,8 +134,8 @@
     margin: 2rem 0 1rem;
 
     &__slide {
-      width: 541px;
-      margin: 0px 16px;
+      width: 590px;
+      margin: 0px 14px;
       font-size: 0.8rem;
     }
 
@@ -149,9 +158,10 @@
     }
 
     &__slide {
-      width: 320px;
+      width: 338px;
       margin: 0 1px;
       font-size: 0.6rem;
+      padding: 10px;
     }
   }
 }
@@ -166,7 +176,7 @@
     }
 
     &__slide {
-      width: 289px;
+      width: 310px;
       margin: 0px 7px;
       font-size: 0.6rem;
     }
@@ -188,9 +198,9 @@
     }
 
     &__slide {
-      width: 233px;
+      width: 275px;
       margin: 0px 4px;
-      font-size: 0.54rem;
+      font-size: 0.6rem;
       padding: 5px;
     }
 

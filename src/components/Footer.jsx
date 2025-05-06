@@ -5,8 +5,8 @@ import Social from "./Social"
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.footer__logo}>
-        <img src={LogoSVO} alt="Логотип сайта" />
+      <div className={styles.footer__container}>
+        <img className={styles.footer__logo} src={LogoSVO} alt="Логотип сайта" />
         </div>
         <div className={styles.footer__rights}>
 					<p>
