@@ -1,0 +1,7 @@
+# включаем модуль
+RewriteEngine On
+
+# если запрос к “русскому” имени, отдадим англоязычный файл
+RewriteRule ^Реквизиты\.pdf$        Requisites.pdf       [L]
+RewriteRule ^Устав\.pdf$             Charter.pdf          [L]
+RewriteRule ^ВыпискаизЕГРЮЛ\.pdf$    ExtractFromEGRUL.pdf [L]

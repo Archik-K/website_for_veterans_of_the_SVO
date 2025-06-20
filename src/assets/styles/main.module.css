@@ -67,7 +67,7 @@
 /* Адаптивные стили для устройств меньше 768px */
 @media (max-width: 768px) {
   .footer__container {
-    width: 12%;
+    width: 15%;
   }
   .footer__rights {
     font-size: 0.6rem;
@@ -160,7 +160,12 @@
     font-size: 0.9rem;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1135px) {
+  .header__link {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 1094px) {
   .header__link {
     font-size: 0.7rem;
   }
@@ -171,8 +176,8 @@
     width: 90%;
   }
 }
-/* Адаптивные стили для устройств меньше 768px */
-@media (max-width: 768px) {
+/* Адаптивные стили для устройств меньше 1000px */
+@media (max-width: 1000px) {
   .header {
     justify-content: space-between;
   }
@@ -191,7 +196,7 @@
     padding: 1rem 0;
   }
   .header__logo {
-    width: 16%;
+    width: 8%;
   }
   .nav_open {
     display: flex;
@@ -225,6 +230,12 @@
   }
   .crossLine:last-child {
     transform: translateY(-50%) rotate(-45deg);
+  }
+}
+/* Адаптивные стили для устройств меньше 720px */
+@media (max-width: 720px) {
+  .header__logo {
+    width: 15%;
   }
 }
 /* Адаптивные стили для устройств меньше 425px */
@@ -282,7 +293,7 @@
 }
 .description__line {
   width: 87%;
-  margin: 3rem 0 0;
+  margin: 2rem 0 0;
   height: 2px;
   background-color: #BAA264;
 }
@@ -305,6 +316,21 @@
   }
   .description__title {
     font-size: 1rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 768px */
+@media (max-width: 768px) {
+  .description__container {
+    width: 35rem;
+  }
+  .description__title {
+    font-size: 0.8rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 600px */
+@media (max-width: 600px) {
+  .description__container {
+    width: 30rem;
   }
 }
 /* Адаптивные стили для устройств меньше 425px */
@@ -390,14 +416,22 @@
 }
 .directions__line {
   width: 87%;
-  margin: 3rem 0 0;
+  margin: 2rem 0 0;
   height: 2px;
   background-color: #BAA264;
 }
 
+@media (max-width: 1294px) {
+  .directions__list li {
+    max-width: calc(45% - 10px);
+  }
+}
 @media (max-width: 1024px) {
   .directions {
     margin: 2rem 0 1rem;
+    /*  &__line {
+      @include line-adaptiv;
+    } */
   }
   .directions__title {
     font-size: 1.1rem;
@@ -409,9 +443,6 @@
   }
   .directions__list li {
     font-size: 0.9rem;
-  }
-  .directions__line {
-    margin: 1rem 0 0;
   }
 }
 @media (max-width: 768px) {
@@ -429,6 +460,12 @@
   }
   .directions__list li {
     font-size: 0.8rem;
+    max-width: calc(46% - 10px);
+  }
+}
+@media (max-width: 600px) {
+  .directions__list li {
+    font-size: 0.7rem;
     max-width: calc(46% - 10px);
   }
 }
@@ -549,12 +586,22 @@
     height: 150px;
   }
   .team__jobtitle, .team__captionfio {
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     margin: 16px 22px 0;
   }
   .team__title {
     font-size: 1.1rem;
     padding: 1rem 2rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 600px */
+@media (max-width: 600px) {
+  .team__image {
+    width: 132px;
+    height: 132px;
+  }
+  .team__jobtitle, .team__captionfio {
+    font-size: 0.65rem;
   }
 }
 /* Адаптивные стили для устройств меньше 425px */
@@ -823,7 +870,7 @@
 /* Адаптивные стили для устройств меньше 768px */
 @media (max-width: 768px) {
   .social {
-    width: 12%;
+    width: 20%;
     justify-content: space-evenly;
   }
 }
@@ -943,6 +990,27 @@
     padding: 2rem 2rem;
   }
 }
+/* Адаптивные стили для устройств меньше 640px */
+@media (max-width: 640px) {
+  .biography__container {
+    width: 35rem;
+  }
+  .biography p {
+    font-size: 0.7rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 600px */
+@media (max-width: 600px) {
+  .biography__container {
+    display: flex;
+    width: 30rem;
+    height: 35rem;
+    flex-direction: column;
+  }
+  .biography p {
+    font-size: 0.7rem;
+  }
+}
 /* Адаптивные стили для устройств меньше 425px */
 @media (max-width: 425px) {
   .biography {
@@ -1045,7 +1113,7 @@
 }
 .grantswon__line {
   width: 87%;
-  margin: 3rem 0 0;
+  margin: 2rem 0 0;
   height: 2px;
   background-color: #BAA264;
 }
@@ -1076,10 +1144,22 @@
     width: 40rem;
   }
   .grantswon__text {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .grantswon__name {
     font-size: 1.1rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 640px */
+@media (max-width: 640px) {
+  .grantswon__container {
+    width: 35rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 600px */
+@media (max-width: 600px) {
+  .grantswon__container {
+    width: 30rem;
   }
 }
 /* Адаптивные стили для устройств меньше 425px */
@@ -1265,6 +1345,13 @@
     font-size: 0.8rem;
   }
 }
+@media (max-width: 600px) {
+  .projects__slide {
+    width: 400px;
+    margin: 0px 70px;
+    font-size: 0.7rem;
+  }
+}
 /* Адаптивные стили для устройств меньше 425px */
 @media (max-width: 425px) {
   .projects__title {
@@ -1339,7 +1426,7 @@
 }
 .news__line {
   width: 87%;
-  margin: 3rem 0 0;
+  margin: 2rem 0 0;
   height: 2px;
   background-color: #BAA264;
 }
@@ -1362,7 +1449,7 @@
   border-radius: 8px;
   width: 90%;
   max-width: 800px;
-  height: 65%;
+  height: 75%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
@@ -1388,11 +1475,15 @@
 }
 
 .content {
+  display: flex;
+  height: 77%;
   color: #2d1300;
   font-weight: 700;
   font-family: "NotoSans_Bold";
   font-size: 1rem;
   padding: 1rem 3rem;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .openButton {
@@ -1417,7 +1508,7 @@
 }
 
 .docItem {
-  margin-bottom: 1rem;
+  margin: 4% 0;
 }
 
 @media (max-width: 1350px) {
@@ -1425,19 +1516,27 @@
     font-size: 0.9rem;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1135px) {
+  .openButton {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 1094px) {
   .openButton {
     font-size: 0.7rem;
   }
   .modal {
     width: 60%;
-    height: 50%;
+    height: 500px;
   }
   .content {
     font-size: 0.9rem;
   }
   .modalHeader {
     font-size: 1rem;
+  }
+  .docItem {
+    margin: 5% 0;
   }
 }
 @media (max-width: 768px) {
@@ -1449,21 +1548,21 @@
     align-items: flex-start;
     flex-direction: column;
   }
+  .content {
+    height: 65%;
+  }
 }
 /* Адаптивные стили для устройств меньше 425px */
 @media (max-width: 425px) {
   .modal {
     width: 80%;
-    height: 60%;
+    height: 420px;
   }
   .modalHeader {
     font-size: 0.8rem;
   }
   .content {
     font-size: 0.7rem;
-  }
-  .docItem {
-    margin: 12% 0;
   }
 }
 .frequentquestions {
@@ -1588,6 +1687,11 @@ ol li {
     width: 65rem;
   }
 }
+@media (max-width: 1294px) {
+  .cardWrapper {
+    width: 60rem;
+  }
+}
 @media (max-width: 1024px) {
   .frequentquestions__title {
     font-size: 1.1rem;
@@ -1616,6 +1720,19 @@ ol li {
   }
   .title {
     font-size: 1rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 700px */
+@media (max-width: 700px) {
+  .cardWrapper {
+    width: 33rem;
+  }
+}
+/* Адаптивные стили для устройств меньше 565px */
+@media (max-width: 565px) {
+  .cardWrapper {
+    width: 29rem;
+    height: 15rem;
   }
 }
 /* Адаптивные стили для устройств меньше 425px */

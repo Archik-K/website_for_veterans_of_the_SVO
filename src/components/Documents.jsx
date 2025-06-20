@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// Используем стили модалки, а не main.module.css
 import styles from '../assets/styles/main.module.css';
 
 // Внутренний компонент: загружает и рендерит список из documents.json
@@ -26,7 +25,7 @@ function DocumentsList() {
             <strong>{doc.title}</strong>
             <p>{doc.description}</p>
             <a
-              href={`/documents/${doc.filename}`}
+              href={`/documents/${doc.slug}`}
               target="_blank"
               rel="noopener noreferrer"
             >

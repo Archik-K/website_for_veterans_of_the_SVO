@@ -60,6 +60,31 @@
   }
 }
 
+/* Адаптивные стили для устройств меньше 768px */
+@media (max-width: 768px) {
+  .description {
+    &__container {
+      width: 35rem;
+    }
+
+    &__title {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 600px */
+@media (max-width: 600px) {
+  .description {
+    &__container {
+      width: 30rem;
+    }
+  }
+}
+
+
+
 /* Адаптивные стили для устройств меньше 425px */
 @media (max-width: 425px) {
   .description {

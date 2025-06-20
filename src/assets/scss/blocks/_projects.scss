@@ -149,6 +149,18 @@
   }
 }
 
+@media (max-width: 600px) {
+  .projects {
+
+    &__slide {
+      width: 400px;
+      margin: 0px 70px;
+      font-size: 0.7rem;
+    }
+  }
+}
+
+
 /* Адаптивные стили для устройств меньше 425px */
 @media (max-width: 425px) {
   .projects {

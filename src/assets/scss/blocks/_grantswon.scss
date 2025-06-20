@@ -81,12 +81,32 @@
     }
 
     &__text {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
 
     &__name {
       font-size: 1.1rem;
     }
+  }
+}
+
+/* Адаптивные стили для устройств меньше 640px */
+@media (max-width: 640px) {
+  .grantswon {
+    &__container {
+      width: 35rem;
+    }
+
+  }
+}
+
+/* Адаптивные стили для устройств меньше 600px */
+@media (max-width: 600px) {
+  .grantswon {
+    &__container {
+      width: 30rem;
+    }
+
   }
 }
 

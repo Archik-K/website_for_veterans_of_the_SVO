@@ -91,7 +91,7 @@
 
     &__jobtitle,
     &__captionfio {
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       margin: 16px 22px 0;
     }
 
@@ -101,6 +101,23 @@
     }
   }
 }
+
+/* Адаптивные стили для устройств меньше 600px */
+@media (max-width: 600px) {
+  .team {
+
+    &__image {
+      width: 132px;
+      height: 132px;
+    }
+
+    &__jobtitle,
+    &__captionfio {
+      font-size: 0.65rem;
+    }
+  }
+}
+
 
 
 /* Адаптивные стили для устройств меньше 425px */

@@ -58,6 +58,7 @@
 }
 
 
+
 @media (max-width: 1350px) {
   .header {
     &__link {
@@ -66,7 +67,15 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1135px) {
+  .header {
+    &__link {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 1094px) {
   .header {
     &__link {
       font-size: 0.7rem;
@@ -82,8 +91,8 @@
   }
 }
 
-/* Адаптивные стили для устройств меньше 768px */
-@media (max-width: 768px) {
+/* Адаптивные стили для устройств меньше 1000px */
+@media (max-width: 1000px) {
   .header {
     justify-content: space-between;
 
@@ -104,7 +113,7 @@
     }
 
     &__logo {
-      width: 16%;
+      width: 8%;
     }
   }
 
@@ -145,6 +154,16 @@
 
   .crossLine:last-child {
     transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+
+/* Адаптивные стили для устройств меньше 720px */
+@media (max-width: 720px) {
+  .header {
+    &__logo {
+      width: 15%;
+    }
   }
 }
 
