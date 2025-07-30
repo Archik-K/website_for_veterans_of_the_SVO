@@ -6,7 +6,6 @@ const ContinuousCarousel = ({
   visibleSlides = 3,
   speed = 15,
   renderSlideContent,
-  persistKey,
 }) => {
   const cloneCount = Math.min(visibleSlides, slidesData.length);
   const slides = [
@@ -17,71 +16,74 @@ const ContinuousCarousel = ({
 
   const trackRef = useRef(null);
   const [offset, setOffset] = useState(0);
-  const [slideWidth, setSlideWidth] = useState(0);
+  const [slideFullWidth, setSlideFullWidth] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const dragStartX = useRef(0);
   const dragOffset = useRef(0);
-
-  const animationFrameId = useRef(null);
   const lastTimeRef = useRef(null);
+  const rafId = useRef(null);
 
+  // 1) измеряем слайд вместе с margin
   useEffect(() => {
-    if (trackRef.current && trackRef.current.children.length > 0) {
-      const firstSlide = trackRef.current.children[0];
-      setSlideWidth(firstSlide.offsetWidth);
-      setOffset(firstSlide.offsetWidth * cloneCount);
+    const track = trackRef.current;
+    if (track?.children.length) {
+      const slideEl = track.children[0];
+      const style = window.getComputedStyle(slideEl);
+      const margin =
+        parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+      const full = slideEl.offsetWidth + margin;
+      setSlideFullWidth(full);
+      setOffset(full * cloneCount);
     }
   }, [cloneCount, slidesData.length]);
 
+  // 2) плавная анимация с модулем по полной ширине
   useEffect(() => {
+    const base = slideFullWidth * cloneCount;
+    const total = slideFullWidth * slidesData.length;
+
     const animate = (time) => {
-      if (lastTimeRef.current != null && !isDragging && slideWidth > 0) {
-        const deltaTime = (time - lastTimeRef.current) / 1000;
-        let newOffset = offset + speed * deltaTime;
-        const resetThreshold = slideWidth * (cloneCount + slidesData.length);
-        if (newOffset >= resetThreshold) {
-          newOffset -= slideWidth * slidesData.length;
-        }
-        setOffset(newOffset);
+      if (lastTimeRef.current != null && !isDragging && slideFullWidth) {
+        const dt = (time - lastTimeRef.current) / 1000;
+        setOffset((prev) => {
+          const rel = prev + speed * dt - base;
+          const wrapped = ((rel % total) + total) % total + base;
+          return wrapped;
+        });
       }
       lastTimeRef.current = time;
-      animationFrameId.current = requestAnimationFrame(animate);
+      rafId.current = requestAnimationFrame(animate);
     };
 
-    animationFrameId.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationFrameId.current);
-  }, [offset, speed, slideWidth, isDragging, cloneCount, slidesData.length]);
+    rafId.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId.current);
+  }, [speed, slideFullWidth, isDragging, cloneCount, slidesData.length]);
 
-  const activeIndex = (() => {
-    if (slideWidth === 0) return 0;
-    const computedIndex = Math.floor((offset - slideWidth * cloneCount + slideWidth / 2) / slideWidth);
-    return ((computedIndex % slidesData.length) + slidesData.length) % slidesData.length;
-  })();
+  // 3) dot‑навигация
+  const activeIndex = slideFullWidth
+    ? ((Math.floor((offset - slideFullWidth * cloneCount + slideFullWidth / 2) / slideFullWidth) % slidesData.length) + slidesData.length) % slidesData.length
+    : 0;
 
-  const handleDotClick = (index) => {
-    if (slideWidth > 0) {
-      setOffset(slideWidth * (cloneCount + index));
+  const handleDotClick = (i) => {
+    if (slideFullWidth) {
+      setOffset(slideFullWidth * (cloneCount + i));
       lastTimeRef.current = performance.now();
     }
   };
 
-  // Touch + Mouse drag handlers
-  const handleStart = (clientX) => {
+  // 4) drag
+  const handleStart = (x) => {
     setIsDragging(true);
-    dragStartX.current = clientX;
+    dragStartX.current = x;
     dragOffset.current = offset;
     lastTimeRef.current = null;
   };
-
-  const handleMove = (clientX) => {
-    if (!isDragging) return;
-    const distance = clientX - dragStartX.current;
-    setOffset(dragOffset.current - distance);
+  const handleMove = (x) => {
+    if (isDragging) {
+      setOffset(dragOffset.current - (x - dragStartX.current));
+    }
   };
-
-  const handleEnd = () => {
-    setIsDragging(false);
-  };
+  const handleEnd = () => setIsDragging(false);
 
   return (
     <div className={styles.carouselContainer}>
@@ -100,12 +102,12 @@ const ContinuousCarousel = ({
           className={styles.slideTrack}
           style={{
             transform: `translateX(-${offset}px)`,
-            transition: "none",
+            willChange: "transform",
             cursor: isDragging ? "grabbing" : "grab",
           }}
         >
-          {slides.map((slide, index) => (
-            <div key={index} className={styles.slide}>
+          {slides.map((slide, i) => (
+            <div key={i} className={styles.slide}>
               {renderSlideContent(slide)}
             </div>
           ))}
@@ -113,11 +115,11 @@ const ContinuousCarousel = ({
       </div>
 
       <div className={styles.dots}>
-        {slidesData.map((_, index) => (
+        {slidesData.map((_, i) => (
           <span
-            key={index}
-            className={`${styles.dot} ${index === activeIndex ? styles.active : ""}`}
-            onClick={() => handleDotClick(index)}
+            key={i}
+            className={`${styles.dot} ${i === activeIndex ? styles.active : ""}`}
+            onClick={() => handleDotClick(i)}
           />
         ))}
       </div>

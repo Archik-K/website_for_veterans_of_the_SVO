@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 99%;
+  width: 100%;
   position: relative;
   flex-direction: column;
   user-select: none;
@@ -14,23 +14,22 @@
 }
 
 .carousel {
-  max-width: 2000px;
-  min-width: 317px;
-  width: 99%;
+  /*   max-width: 2000px;
+  min-width: 317px; */
+  width: 100%;
+  margin: 5% 0;
   overflow: hidden;
   position: relative;
 }
 
 .slideTrack {
   display: flex;
-  transition: transform 0.8s ease-in-out;
   will-change: transform;
 }
 
 .slide {
   flex: 0 0 calc(100% / 3);
   display: flex;
-  margin: 5% 1%;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -105,12 +104,12 @@
   background: #ff5100;
 }
 
-@media (max-width: 1440px) {
+/* @media (max-width: 1440px) {
   .carouselContainer {
     width: 99%;
   }
-}
-
+} */
+/* 
 @media (max-width: 1024px) {
   .carouselContainer {
     width: 95%;
@@ -119,10 +118,10 @@
   .carousel {
     width: 97%;
   }
-}
+} */
 
 /* Адаптивные стили для устройств меньше 768px */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .carouselContainer {
     width: 97%;
   }
@@ -130,29 +129,30 @@
   .arrow {
     display: none;
   }
-}
+} */
 
 /* Адаптивные стили для устройств меньше 425px */
 @media (max-width: 425px) {
-  .carouselContainer {
+  /*   .carouselContainer {
     width: 98%;
-  }
+  } */
 
-  .arrow {
+  /*   .arrow {
     width: 28px;
     height: 28px;
     font-size: 1rem;
   }
-
+ */
   .slide {
     flex: 0 0 calc(63% / 2);
     margin: 5% 3%;
   }
 
+  /* 
   .carousel {
     width: 100%;
     touch-action: manipulation;
-  }
+  } */
 }
 
 
